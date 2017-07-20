@@ -1,0 +1,11 @@
+###############################################################################
+#     LOCALE PROPERTIES - ENGLISH
+#     AUTHOR            -  
+#     DATE              - 20/07/2017
+###############################################################################
+
+
+menuitem.lbl.text.exit =                    Exit
+
+dialog.text.confirm.exit =                  Do you really want to exit {0}?
+dialog.title.confirm =                      Confirm

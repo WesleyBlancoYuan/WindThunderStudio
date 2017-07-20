@@ -1,0 +1,13 @@
+###############################################################################
+#     LOCALE PROPERTIES - SIMPLIFIED CHINESE
+#     AUTHOR            -  
+#     DATE              - 20/07/2017
+###############################################################################
+
+
+menuitem.lbl.text.exit =                    退出
+
+
+dialog.text.confirm.exit =                  确定要退出 {0} 吗？
+dialog.title.confirm =                      确认
+dialog.text.not.supported.exit =            当前操作系统不支持系统托盘。退出中……
