@@ -1,0 +1,32 @@
+INFO  Id:  1, U: 99GU6879 - 24-07-2017 10:49:27:0932 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : logSystemInfo                 : Windows 8.1
+INFO  Id:  1, U: 99GU6879 - 24-07-2017 10:49:27:0935 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : logSystemInfo                 : amd64
+INFO  Id:  1, U: 99GU6879 - 24-07-2017 10:49:27:0935 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : logSystemInfo                 : 6.3
+INFO  Id:  1, U: 99GU6879 - 24-07-2017 10:49:27:0938 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : logSystemInfo                 : Mon Jul 24 10:49:27 CEST 2017
+INFO  Id:  1, U: 99GU6879 - 24-07-2017 10:49:27:0939 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : logSystemInfo                 : 
+
+INFO  Id:  16, U: 99GU6879 - 24-07-2017 10:49:28:0038 com.windthunderstudio.ui.GUI_Manager                        : createGUI                     : System Tray is supported.
+FATAL Id:  1, U: 99GU6879 - 24-07-2017 10:49:28:0042 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : main                          : Not able to launch application: 
+java.lang.reflect.InvocationTargetException: null
+	at java.awt.EventQueue.invokeAndWait(EventQueue.java:1288) ~[?:1.7.0_79]
+	at java.awt.EventQueue.invokeAndWait(EventQueue.java:1263) ~[?:1.7.0_79]
+	at javax.swing.SwingUtilities.invokeAndWait(SwingUtilities.java:1347) ~[?:1.7.0_79]
+	at com.windthunderstudio.launcher.SystemTrayAlarmLauncher.main(SystemTrayAlarmLauncher.java:18) [classes/:?]
+Caused by: java.lang.NullPointerException
+	at com.windthunderstudio.ui.GUI_Manager.createPopupMenu(GUI_Manager.java:60) ~[classes/:?]
+	at com.windthunderstudio.ui.GUI_Manager.createGUI(GUI_Manager.java:87) ~[classes/:?]
+	at com.windthunderstudio.ui.GUI_Manager.<init>(GUI_Manager.java:53) ~[classes/:?]
+	at com.windthunderstudio.launcher.SystemTrayAlarmLauncher$1.run(SystemTrayAlarmLauncher.java:21) ~[classes/:?]
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:302) ~[?:1.7.0_79]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:745) ~[?:1.7.0_79]
+	at java.awt.EventQueue.access$300(EventQueue.java:103) ~[?:1.7.0_79]
+	at java.awt.EventQueue$3.run(EventQueue.java:706) ~[?:1.7.0_79]
+	at java.awt.EventQueue$3.run(EventQueue.java:704) ~[?:1.7.0_79]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:1.7.0_79]
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76) ~[?:1.7.0_79]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:715) ~[?:1.7.0_79]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242) ~[?:1.7.0_79]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161) ~[?:1.7.0_79]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150) ~[?:1.7.0_79]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146) ~[?:1.7.0_79]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138) ~[?:1.7.0_79]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91) ~[?:1.7.0_79]

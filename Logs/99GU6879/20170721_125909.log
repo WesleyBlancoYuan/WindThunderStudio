@@ -1,0 +1,2 @@
+INFO  Id:  13, U: 99GU6879 - 21-07-2017 12:59:08:0325 com.windthunderstudio.ui.GUI_Manager                        : createGUI                     : System Tray is supported.
+ERROR Id:  13, U: 99GU6879 - 21-07-2017 12:59:08:0345 com.windthunderstudio.ui.GUI_Manager                        : createGUI                     : System tray icon not found in the path: src/main/resources/icon/alarm.png

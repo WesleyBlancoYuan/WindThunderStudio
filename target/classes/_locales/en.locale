@@ -4,8 +4,15 @@
 #     DATE              - 20/07/2017
 ###############################################################################
 
+app.name =                                  System Tray Alarm
 
 menuitem.lbl.text.exit =                    Exit
 
+dialog.option.yes =                         Yes
+dialog.option.no =                          No
+dialog.option.confirm =                     Confirm
+dialog.option.cancel =                      Cancel
+
 dialog.text.confirm.exit =                  Do you really want to exit {0}?
 dialog.title.confirm =                      Confirm
+dialog.text.not.supported.exit =            System tray is not supported in this platform. Exiting now...

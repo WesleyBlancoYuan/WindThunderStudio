@@ -4,7 +4,7 @@ import java.util.Properties;
 
 public class I18N_Manager {
     private static Properties localeProp = loadLocaleProp();
-    
+    public static boolean isChinese;
     /**
      * Reload the locale settings, changing <code>I18N_Manager.localeProp</code>
      * according to the config file.
@@ -26,19 +26,20 @@ public class I18N_Manager {
         try {
             switch (localeString) {
             case CTS.LOCALE_STR_ES:
-                localePath = CTS.LOCALE_PATH_PREFIX + CTS.LOCALE_STR_ES + CTS.LOCALE_PATH_SUFFIX;
+                localePath = CTS.LOCALE_PATH_PREFIX + CTS.LOCALE_STR_ES + "." + CTS.LOCALE_PATH_SUFFIX;
                 break;
                 
             case CTS.LOCALE_STR_EN:
-                localePath = CTS.LOCALE_PATH_PREFIX + CTS.LOCALE_STR_EN + CTS.LOCALE_PATH_SUFFIX;
+                localePath = CTS.LOCALE_PATH_PREFIX + CTS.LOCALE_STR_EN + "." + CTS.LOCALE_PATH_SUFFIX;
                 break;
                 
             case CTS.LOCALE_STR_ZH_HANS:
-                localePath = CTS.LOCALE_PATH_PREFIX + CTS.LOCALE_STR_ZH_HANS + CTS.LOCALE_PATH_SUFFIX;
+                isChinese = true;
+                localePath = CTS.LOCALE_PATH_PREFIX + CTS.LOCALE_STR_ZH_HANS + "." + CTS.LOCALE_PATH_SUFFIX;
                 break;
                 
             default:
-                localePath = CTS.LOCALE_PATH_PREFIX + CTS.LOCALE_STR_ES + CTS.LOCALE_PATH_SUFFIX;
+                localePath = CTS.LOCALE_PATH_PREFIX + CTS.LOCALE_STR_ES + "." + CTS.LOCALE_PATH_SUFFIX;
                 break;
             }
             return PropReader.readProp(localePath);

@@ -1,0 +1,9 @@
+INFO  Id:  1, U: 99GU6879 - 24-07-2017 15:23:47:0994 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : logSystemInfo                 : Windows 8.1
+INFO  Id:  1, U: 99GU6879 - 24-07-2017 15:23:47:0996 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : logSystemInfo                 : amd64
+INFO  Id:  1, U: 99GU6879 - 24-07-2017 15:23:47:0996 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : logSystemInfo                 : 6.3
+INFO  Id:  1, U: 99GU6879 - 24-07-2017 15:23:48:0000 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : logSystemInfo                 : Mon Jul 24 15:23:47 CEST 2017
+INFO  Id:  1, U: 99GU6879 - 24-07-2017 15:23:48:0000 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : logSystemInfo                 : 
+
+INFO  Id:  16, U: 99GU6879 - 24-07-2017 15:23:48:0112 com.windthunderstudio.ui.GUI_Manager                        : createGUI                     : System Tray is supported.
+INFO  Id:  16, U: 99GU6879 - 24-07-2017 15:23:53:0373 com.windthunderstudio.ui.GUI_Manager                        : actionPerformed               : Exiting...
+INFO  Id:  16, U: 99GU6879 - 24-07-2017 15:23:56:0460 com.windthunderstudio.ui.GUI_Manager                        : actionPerformed               : Exiting...

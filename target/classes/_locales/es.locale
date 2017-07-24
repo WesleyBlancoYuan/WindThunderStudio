@@ -4,5 +4,15 @@
 #     DATE              - 20/07/2017
 ###############################################################################
 
+app.name =                                  System Tray Alarm
 
 menuitem.lbl.text.exit =                    Salir
+
+dialog.option.yes =                         Sí
+dialog.option.no =                          No
+dialog.option.confirm =                     Confirmar
+dialog.option.cancel =                      Cancelar
+
+dialog.text.confirm.exit =                  ¿Está seguro de salir del programa {0}?
+dialog.title.confirm =                      Confirmar
+dialog.text.not.supported.exit =            No es disponible el System tray en esta plataforma. Saliendo del programa...
