@@ -1,18 +1,21 @@
 package com.windthunderstudio.ui.elements.menuitem;
 
-import java.awt.MenuItem;
+import javax.swing.JMenuItem;
+import javax.swing.SwingConstants;
 
 import com.windthunderstudio.logic.util.CTS;
 
-public class PlainMenuItem extends MenuItem{
+public class PlainMenuItem extends JMenuItem{
     public PlainMenuItem() {
         super();
-        this.setFont(CTS.ARIAL_PLAIN_12);
+        this.setFont(CTS.ARIAL_PLAIN_14);
+        this.setHorizontalAlignment(SwingConstants.CENTER);
+        this.setVerticalAlignment(SwingConstants.CENTER);
     }
     
     public PlainMenuItem(String text) {
         this();
-        this.setLabel(text);
+        this.setText(text);
         
     }
     

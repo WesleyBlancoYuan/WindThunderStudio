@@ -14,10 +14,11 @@ public class CTS {
     public static final String APP_NAME = "app.name";
     
     /* *************************** UI resources *************************************/
-    public static final Font ARIAL_PLAIN_12 = new Font("Arial", Font.PLAIN, 12);
-    public static final Font ARIAL_BOLD_12 = new Font("Arial", Font.BOLD, 12);
+    public static final Font ARIAL_PLAIN_14 = new Font("Arial", Font.PLAIN, 14);
+    public static final Font ARIAL_BOLD_14 = new Font("Arial", Font.BOLD, 14);
     public static final String FONT_FAMILY_NAME_WENQUAN = "WenQuanYi Micro Hei Mono";
     
+    public static final String ICON_ALARM_PATH = "src/main/resources/icons/alarm.gif";
     
     /* *************************** Config value *************************************/
     public static final String CONFIG_PROP_PATH = "src/main/resources/settings.properties"; //relative
@@ -29,9 +30,15 @@ public class CTS {
     public static final String LOCALE_STR_ES = "es";
     public static final String LOCALE_STR_EN = "en";
     public static final String LOCALE_STR_ZH_HANS = "zh_hans";
+    public static final String LOCALE_LANG_ES = "Español";
+    public static final String LOCALE_LANG_EN = "English";
+    public static final String LOCALE_LANG_ZH_HANS = "简体中文 （中国大陆）";
     
-    /* *************************** Menu label text***********************************/
-    public static final String MENUITEM_LBL_TEXT_EXIT = "menuitem.lbl.text.exit";
+    /* *************************** Menu label/button/menu text ***************************/
+    public static final String TEXT_MENUITEM_EXIT = "text.menuitem.exit";
+    public static final String TEXT_LBL_ACTION = "text.lbl.action";
+    public static final String TEXT_LBL_CONFIG = "text.lbl.config";
+    public static final String TEXT_MENU_LANG = "text.menu.lang";
     
     public static final String FONT_PATH_WENQUAN = "src/main/resources/fonts/wenq.micro.hei.mono.ttf";
     /* *************************** Dialog message and titles ************************/
@@ -44,7 +51,6 @@ public class CTS {
     public static final String DIALOG_TITLE_CONFIRM     = "dialog.title.confirm";
     public static final String DIALOG_TEXT_NOT_SUPPORTED_EXIT = "dialog.text.not.supported.exit";
     // a classloader path: differ according to class package
-    public static final String ICON_ALARM_PATH = "src/main/resources/icons/alarm.png";
     
     
 }

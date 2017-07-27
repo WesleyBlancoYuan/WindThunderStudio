@@ -6,25 +6,22 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class PropReader {
+    private static final Logger log = LogManager.getLogger(PropReader.class);
     
     public static Properties readProp(String path) {
         Properties prop = new Properties();
         InputStream input = null;
         try {
-            File f = new File(path);
-            if (f.exists()) {
-                input = new FileInputStream(f);
-                prop.load(input);
-                
-            } else {
-                System.out.println("No properties file is found. Double check the path: " + path);
-                return null;
-            }
-            if (input != null) input.close();
+            input = new FileInputStream(new File(path));
+            prop.load(input);
+            input.close();
             return prop;
         } catch (IOException e) {
-            System.err.println("Input/output problem when loading properties: " + e);
+            log.error("Cannot read config file: " + e);
         }
         return null;
     }

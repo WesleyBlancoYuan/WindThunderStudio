@@ -2,7 +2,11 @@ package com.windthunderstudio.logic.util;
 
 import java.util.Properties;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class I18N_Manager {
+    private static final Logger log = LogManager.getLogger(I18N_Manager.class);
     private static Properties localeProp = loadLocaleProp();
     public static boolean isChinese;
     /**
@@ -44,8 +48,10 @@ public class I18N_Manager {
             }
             return PropReader.readProp(localePath);
         } catch (Exception e) {
-            System.err.println("Error loading locale settings: " + e);
+            log.error("Error loading locale settings: " + e);
         }
         return null;
     }
+
+    
 }
