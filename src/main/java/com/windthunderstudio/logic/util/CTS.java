@@ -12,10 +12,9 @@ public class CTS {
     
     /* *************************** Pan-app values ***********************************/
     public static final String APP_NAME = "app.name";
+    public static final Object PROPERTY_NAME_TEXT = "text"; //for propertyListener
     
     /* *************************** UI resources *************************************/
-    public static final Font ARIAL_PLAIN_14 = new Font("Arial", Font.PLAIN, 14);
-    public static final Font ARIAL_BOLD_14 = new Font("Arial", Font.BOLD, 14);
     public static final String FONT_FAMILY_NAME_WENQUAN = "WenQuanYi Micro Hei Mono";
     
     public static final String ICON_ALARM_PATH = "src/main/resources/icons/alarm.gif";
@@ -30,9 +29,9 @@ public class CTS {
     public static final String LOCALE_STR_ES = "es";
     public static final String LOCALE_STR_EN = "en";
     public static final String LOCALE_STR_ZH_HANS = "zh_hans";
-    public static final String LOCALE_LANG_ES = "Español";
-    public static final String LOCALE_LANG_EN = "English";
-    public static final String LOCALE_LANG_ZH_HANS = "简体中文 （中国大陆）";
+    public static final String LOCALE_LANG_ES = "locale.lang.es";
+    public static final String LOCALE_LANG_EN = "locale.lang.en";
+    public static final String LOCALE_LANG_ZH_HANS = "locale.lang.zh_hans";
     
     /* *************************** Menu label/button/menu text ***************************/
     public static final String TEXT_MENUITEM_EXIT = "text.menuitem.exit";

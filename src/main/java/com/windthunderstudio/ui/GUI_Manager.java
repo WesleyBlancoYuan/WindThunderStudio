@@ -34,6 +34,7 @@ import com.windthunderstudio.logic.util.CTS;
 import com.windthunderstudio.logic.util.ConfigReader;
 import com.windthunderstudio.logic.util.I18N_Manager;
 import com.windthunderstudio.logic.util.ReflectionUIHandler;
+import com.windthunderstudio.ui.controller.FontManager;
 import com.windthunderstudio.ui.elements.menu.PlainMenu;
 import com.windthunderstudio.ui.elements.menu.PopupMenuForAlarm;
 import com.windthunderstudio.ui.elements.menuitem.BoldLabel;
@@ -65,44 +66,21 @@ public class GUI_Manager {
     public static SystemTray getSystemTray() {
         return tray;
     }
-    
-    
+
     public GUI_Manager() {
         try {
             UIManager.setLookAndFeel(new MetalLookAndFeel());
+            FontManager fontManager = new FontManager();
+            fontManager.registerFont();
         } catch (UnsupportedLookAndFeelException e) {
             log.error("Metal Look&Feel not supported: ", e);
         }
         createGUI();
     }
     
-    private void setFontByLocale() {
-        if (!I18N_Manager.isChinese) {
-            UIManager.put("OptionPane.messageFont", CTS.ARIAL_PLAIN_14);
-            UIManager.put("OptionPane.buttonFont", CTS.ARIAL_PLAIN_14);
-            UIManager.put("OptionPane.font", CTS.ARIAL_PLAIN_14);
-        } else {
-            try {
-                GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-                Font wenquanPlain = Font.createFont(Font.TRUETYPE_FONT, new File(CTS.FONT_PATH_WENQUAN));
-                //only after registering the font family name will be available.
-                ge.registerFont(wenquanPlain);
-                //must assign font with new, if is JOptionPane. If is JLabel, can just use 
-                //with deriveFont()
-                WQ_BOLD_14 = new Font(CTS.FONT_FAMILY_NAME_WENQUAN, Font.BOLD, 14);
-                WQ_PLAIN_14 = new Font(CTS.FONT_FAMILY_NAME_WENQUAN, Font.PLAIN, 14);
-                UIManager.put("OptionPane.messageFont", WQ_PLAIN_14);
-                UIManager.put("OptionPane.buttonFont", WQ_PLAIN_14);
-                UIManager.put("OptionPane.font", WQ_PLAIN_14);
-            } catch (IOException e) {
-                log.error("Cannot locate Font file: ", e);
-            } catch (FontFormatException e1) {
-                log.error("Cannot format Font: ", e1);
-            }
-        }
-    }
+
     private PopupMenuForAlarm createPopupMenu() {
-        setFontByLocale();
+        
         jpop = new PopupMenuForAlarm();
         
         /* Action part: common operations*/
@@ -125,18 +103,23 @@ public class GUI_Manager {
         
         /* Config - Lang - ES */
         langES = new PlainMenuItem();
-        langES.setText(CTS.LOCALE_LANG_ES);
-        langES.setMnemonic(KeyEvent.VK_E);
+        langES.setText(localeProp.getProperty(CTS.LOCALE_LANG_ES));
+        langES.setTextKey(CTS.LOCALE_LANG_ES);
+        langES.setMnemonic(KeyEvent.VK_S); //for showing it in English and Spanish menu
         langES.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                I18N_Manager.isChinese = false;
                 ConfigReader.config(CTS.CONFIG_KEY_LOCALE, CTS.LOCALE_STR_ES);
                 ConfigReader.reloadConfig();
                 I18N_Manager.reloadLocale();
+                localeProp = I18N_Manager.loadLocale(); //load prop in this class
                 if (allComponents != null && !allComponents.isEmpty()) {
                     for (JComponent c: allComponents) {
-                        ReflectionUIHandler.getAndSetProperty(c, "Text", "TextKey");
+                        ReflectionUIHandler.getAndSetProperty(c, I18N_Manager.loadLocale(), "TextKey", "Text");
+                        // after changing text, the font will be changed by the propertyChangeListener.
                     }
+                    jpop.revalidate();
                 }
             }
         });
@@ -144,18 +127,23 @@ public class GUI_Manager {
         
         /* Config - Lang - EN */
         langEN = new PlainMenuItem();
-        langEN.setText(CTS.LOCALE_LANG_EN);
+        langEN.setText(localeProp.getProperty(CTS.LOCALE_LANG_EN));
+        langEN.setTextKey(CTS.LOCALE_LANG_EN);
         langEN.setMnemonic(KeyEvent.VK_G);
         langEN.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                I18N_Manager.isChinese = false;
                 ConfigReader.config(CTS.CONFIG_KEY_LOCALE, CTS.LOCALE_STR_EN);
                 ConfigReader.reloadConfig();
                 I18N_Manager.reloadLocale();
+                localeProp = I18N_Manager.loadLocale(); //load prop in this class
                 if (allComponents != null && !allComponents.isEmpty()) {
                     for (JComponent c: allComponents) {
-                        ReflectionUIHandler.getAndSetProperty(c, "Text", "TextKey");
+                        ReflectionUIHandler.getAndSetProperty(c, I18N_Manager.loadLocale(), "TextKey", "Text");
+                        // after changing text, the font will be changed by the propertyChangeListener.
                     }
+                    jpop.revalidate();
                 }
             }
         });
@@ -163,19 +151,23 @@ public class GUI_Manager {
         
         /* Config - Lang - CN */
         langCN = new PlainMenuItem();
-        langCN.setText(CTS.LOCALE_LANG_EN);
-        
-        langCN.setMnemonic(KeyEvent.VK_G);
+        langCN.setText(localeProp.getProperty(CTS.LOCALE_LANG_ZH_HANS));
+        langCN.setTextKey(CTS.LOCALE_LANG_ZH_HANS);
+        langCN.setMnemonic(KeyEvent.VK_C);
         langCN.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                I18N_Manager.isChinese = true;
                 ConfigReader.config(CTS.CONFIG_KEY_LOCALE, CTS.LOCALE_STR_ZH_HANS);
                 ConfigReader.reloadConfig();
                 I18N_Manager.reloadLocale();
+                localeProp = I18N_Manager.loadLocale(); //load prop in this class
                 if (allComponents != null && !allComponents.isEmpty()) {
                     for (JComponent c: allComponents) {
-                        ReflectionUIHandler.getAndSetProperty(c, "Text", "TextKey");
+                        ReflectionUIHandler.getAndSetProperty(c, I18N_Manager.loadLocale(), "TextKey", "Text");
+                        // after changing text, the font will be changed by the propertyChangeListener.
                     }
+                    jpop.revalidate();
                 }
             }
         });
@@ -188,6 +180,7 @@ public class GUI_Manager {
         /* Exit */
         exit = new PlainMenuItem();
         exit.setText(localeProp.getProperty(CTS.TEXT_MENUITEM_EXIT));
+        exit.setTextKey(CTS.TEXT_MENUITEM_EXIT);
         exit.setMnemonic(KeyEvent.VK_X);
         exit.addActionListener(new ActionListener() {
             @Override
@@ -210,7 +203,6 @@ public class GUI_Manager {
             }
         });
         
-        jpop.addSeparator();
         jpop.add(exit);
         
         // add all constructed components for config
@@ -218,9 +210,6 @@ public class GUI_Manager {
         allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(BoldLabel.class.getName(), this));
         allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(PlainMenuItem.class.getName(), this));
         allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(PlainMenu.class.getName(), this));
-        
-        configComponentsFont(allComponents);
-        
         
         return jpop;
     }
@@ -291,16 +280,68 @@ public class GUI_Manager {
         }
     }
     
-    private void configComponentsFont(List<JComponent> components) {
-        for (JComponent i: components) {
-            if (I18N_Manager.isChinese) {
-                if (i instanceof JLabel) {
-                    i.setFont(WQ_BOLD_14);
-                } else {
-                    i.setFont(WQ_PLAIN_14);
-                }
-            }
-            // if the locale is not Chinese, font is set in super class.
-        }
+    public PopupMenuForAlarm getJpop() {
+        return jpop;
     }
+
+    public void setJpop(PopupMenuForAlarm jpop) {
+        this.jpop = jpop;
+    }
+
+    public BoldLabel getActions() {
+        return actions;
+    }
+
+    public void setActions(BoldLabel actions) {
+        this.actions = actions;
+    }
+
+    public BoldLabel getConfig() {
+        return config;
+    }
+
+    public void setConfig(BoldLabel config) {
+        this.config = config;
+    }
+
+    public PlainMenu getLang() {
+        return lang;
+    }
+
+    public void setLang(PlainMenu lang) {
+        this.lang = lang;
+    }
+
+    public PlainMenuItem getLangES() {
+        return langES;
+    }
+
+    public void setLangES(PlainMenuItem langES) {
+        this.langES = langES;
+    }
+
+    public PlainMenuItem getLangEN() {
+        return langEN;
+    }
+
+    public void setLangEN(PlainMenuItem langEN) {
+        this.langEN = langEN;
+    }
+
+    public PlainMenuItem getLangCN() {
+        return langCN;
+    }
+
+    public void setLangCN(PlainMenuItem langCN) {
+        this.langCN = langCN;
+    }
+
+    public PlainMenuItem getExit() {
+        return exit;
+    }
+
+    public void setExit(PlainMenuItem exit) {
+        this.exit = exit;
+    }
+
 }

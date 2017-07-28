@@ -1,6 +1,5 @@
 package com.windthunderstudio.logic.util;
 
-import java.awt.Font;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -11,7 +10,6 @@ import javax.swing.JComponent;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.omg.CORBA.portable.ValueBase;
 
 public class ReflectionUIHandler {
     private static final Logger log = LogManager.getLogger(ReflectionUIHandler.class);
@@ -79,24 +77,42 @@ public class ReflectionUIHandler {
             
         }
     }
-    public static void getAndSetProperty(Object component, String propertyName, String originProperty) {
-        
-        String newProp = CommonUtils.capitalizeString(propertyName);
+    /**
+     * Get the value of originProperty from the class of component, then set it to targetProperty.
+     * This method does not do type check.
+     * @param component the object containing the fields of originProperty and targetProperty
+     * @param originProperty the name of property to get
+     * @param targetProperty the name of property to set
+     */
+    public static void getAndSetProperty(Object component, Object locale, String originProperty, String targetProperty) {
+        String newProp = CommonUtils.capitalizeString(targetProperty);
         String newOrigin = CommonUtils.capitalizeString(originProperty);
         try {
-            //get the getter method, retrieve the value of getter return type as value to set
+            //get the getter method, retrieve the value of getter return type as key in property method
             Method getter = component.getClass().getMethod("get" + newOrigin, (Class[])null);
             getter.setAccessible(true);
-            Object value = getter.invoke(component, (Object[])null);
-            //get the setter method, and call it.
-            Method setter = component.getClass().getMethod("set" + newProp, component.getClass());
+            Object key = getter.invoke(component, (Object[])null);
+            if (key == null) {
+                log.error("The component has no value defined for the property " + originProperty);
+            }
+            //get the getProperty() method, and call it.
+            Method getPropertyMethod = locale.getClass().getMethod("getProperty", key.getClass());
+            getPropertyMethod.setAccessible(true);
+            Object value = getPropertyMethod.invoke(locale, key);
+            
+            //get the setter method of component, and call it.
+            Method setter = component.getClass().getMethod("set" + newProp, value.getClass());
             setter.setAccessible(true);
             setter.invoke(component, value);
+            
         } catch (NoSuchMethodException | SecurityException | 
                 IllegalAccessException | IllegalArgumentException | 
                 InvocationTargetException e) {
-            log.debug("Error when getting property from " + originProperty + " and setting property to " + propertyName + ": ", e);
+            log.debug("Error when getting property from " + originProperty + " and setting property to " + targetProperty + ": ", e);
             throw new RuntimeException(e);
+        } catch (Exception e1) {
+            log.error("Unknown error when getting and setting property: ", e1);
+            throw new RuntimeException(e1);
         }
     }
     

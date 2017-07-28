@@ -8,6 +8,7 @@ import javax.swing.JPopupMenu;
 
 import com.windthunderstudio.logic.util.CTS;
 import com.windthunderstudio.logic.util.I18N_Manager;
+import com.windthunderstudio.ui.controller.FontManager;
 
 public class PopupMenuForAlarm extends JPopupMenu {
     
@@ -15,7 +16,7 @@ public class PopupMenuForAlarm extends JPopupMenu {
     
     public PopupMenuForAlarm() {
         super();
-        this.setFont(CTS.ARIAL_PLAIN_14);
+        this.setFont(FontManager.ARIAL_PLAIN);
     }
     
     public void fillMenu(List<JMenuItem> items) {

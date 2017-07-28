@@ -5,7 +5,11 @@
 ###############################################################################
 
 app.name                                    = System Tray Alarm
-                                            
+
+locale.lang.es                              = Español
+locale.lang.en                              = Inglés
+locale.lang.zh_hans                         = Chino Simplificado
+
 text.menuitem.exit                          = Salir
 text.lbl.action                             = Acciones
 text.lbl.config                             = Configuración
