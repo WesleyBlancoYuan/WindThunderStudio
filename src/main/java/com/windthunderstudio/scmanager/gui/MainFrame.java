@@ -163,7 +163,6 @@ public class MainFrame extends JFrame {
         
         LayerPanelWithSection wsLayer = new LayerPanelWithSection(localeProp.getProperty(CTS.TEXT_LAYER_DESC_HTML_WS));
         
-        
         /* Bot panel for back, next, process and cancel button. */
         bot = new JPanel();
         bot.setOpaque(false);
