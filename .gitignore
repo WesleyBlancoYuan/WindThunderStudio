@@ -4,3 +4,4 @@
 .project
 Logs/**
 /target/
+/bin/
