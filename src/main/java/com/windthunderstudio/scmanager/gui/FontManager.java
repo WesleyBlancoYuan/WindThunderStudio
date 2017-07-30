@@ -18,7 +18,9 @@ public class FontManager {
     private static final Logger log = LogManager.getLogger(FontManager.class);
     
     public static final Font ARIAL_PLAIN = new Font("Arial", Font.PLAIN, 14);
+    public static final Font ARIAL_PLAIN_BIG = new Font("Arial", Font.PLAIN, 16);
     public static final Font ARIAL_BOLD = new Font("Arial", Font.BOLD, 14);
+    public static final Font ARIAL_BOLD_BIG = new Font("Arial", Font.BOLD, 16);
     
     public static Font WQ_BOLD;
     public static Font WQ_PLAIN;

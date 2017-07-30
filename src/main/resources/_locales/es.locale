@@ -1,25 +1,31 @@
 ###############################################################################
 #     LOCALE PROPERTIES - SPANISH
 #     AUTHOR            -  
-#     DATE              - 20/07/2017
+#     DATE              - 30/07/2017
+#     ENCODING          - UTF-8
 ###############################################################################
 
 app.name                                    = System Tray Alarm
 
+text.menu.lang                              = Lenguaje
 locale.lang.es                              = Español
 locale.lang.en                              = Inglés
 locale.lang.zh_hans                         = Chino Simplificado
 
-text.menuitem.exit                          = Salir
-text.lbl.action                             = Acciones
-text.lbl.config                             = Configuración
-text.menu.lang                              = Lenguaje 
-                                            
+text.menuitem.about                         = Acerca de
+
+text.btn.back                               = Atrás
+text.btn.next                               = Siguiente
+text.btn.process                            = Procesar
+text.btn.cancel                             = Cancelar
+
+text.layer.desc.html.ws                     = <html>Seleccione los directorios del antiguo y nuevo espacio de trabajo ("workspace").</html>
+
 dialog.option.yes                           = Sí
 dialog.option.no                            = No
 dialog.option.confirm                       = Confirmar
 dialog.option.cancel                        = Cancelar
                                             
-dialog.text.confirm.exit                    = ¿Estás seguro de salir del programa {0}?
+dialog.text.confirm.exit                    = ¿Está seguro de salir del programa {0}?
 dialog.title.confirm                        = Confirmar
 dialog.text.not.supported.exit              = No es disponible el System tray en esta plataforma. Saliendo del programa...

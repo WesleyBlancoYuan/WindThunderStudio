@@ -12,7 +12,7 @@ public class CTS {
     
     /* *************************** Pan-app values ***********************************/
     public static final String APP_NAME = "app.name";
-    public static final Object PROPERTY_NAME_TEXT = "text"; //for propertyListener
+    public static final String PROPERTY_NAME_TEXT = "text"; //for propertyListener
     
     /* *************************** UI resources *************************************/
     public static final String FONT_FAMILY_NAME_WENQUAN = "WenQuanYi Micro Hei Mono";
@@ -33,11 +33,16 @@ public class CTS {
     public static final String LOCALE_LANG_EN = "locale.lang.en";
     public static final String LOCALE_LANG_ZH_HANS = "locale.lang.zh_hans";
     
-    /* *************************** Menu label/button/menu text ***************************/
-    public static final String TEXT_MENUITEM_EXIT = "text.menuitem.exit";
-    public static final String TEXT_LBL_ACTION = "text.lbl.action";
-    public static final String TEXT_LBL_CONFIG = "text.lbl.config";
+    /* *************************** UI elements text ***************************/
     public static final String TEXT_MENU_LANG = "text.menu.lang";
+    public static final String TEXT_BTN_BACK = "text.btn.back";
+    public static final String TEXT_BTN_NEXT = "text.btn.next";
+    public static final String TEXT_BTN_PROCESS = "text.btn.process";
+    public static final String TEXT_BTN_CANCEL = "text.btn.cancel";
+    public static final String TEXT_MENUITEM_ABOUT = "text.menuitem.about";
+    
+    /* *************************** Layer **************************************/
+    public static final String TEXT_LAYER_DESC_HTML_WS = "text.layer.desc.html.ws";
     
     public static final String FONT_PATH_WENQUAN = "src/main/resources/fonts/wenq.micro.hei.mono.ttf";
     /* *************************** Dialog message and titles ************************/

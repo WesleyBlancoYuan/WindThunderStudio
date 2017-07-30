@@ -1,20 +1,25 @@
 ###############################################################################
 #     LOCALE PROPERTIES - ENGLISH
-#     AUTHOR            -  
-#     DATE              - 20/07/2017
+#     AUTHOR            - 
+#     DATE              - 30/07/2017
+#     ENCODING          - UTF-8
 ###############################################################################
 
 app.name                                    = System Tray Alarm
 
+text.menu.lang                              = Language
 locale.lang.es                              = Spanish
 locale.lang.en                              = English
 locale.lang.zh_hans                         = Simplified Chinese
 
-text.menuitem.exit                          = Exit
-text.lbl.action                             = Actions
-text.lbl.config                             = Config
-text.menu.lang                              = Language
+text.menuitem.about                         = About
 
+text.btn.back                               = Back
+text.btn.next                               = Next
+text.btn.process                            = Process
+text.btn.cancel                             = Cancel
+
+text.layer.desc.html.ws                     = <html>Select the old and new workspace directories.</html>
 
 dialog.option.yes                           = Yes
 dialog.option.no                            = No
@@ -23,4 +28,3 @@ dialog.option.cancel                        = Cancel
 
 dialog.text.confirm.exit                    = Do you really want to exit {0}?
 dialog.title.confirm                        = Confirm
-dialog.text.not.supported.exit              = System tray is not supported in this platform. Exiting now...
