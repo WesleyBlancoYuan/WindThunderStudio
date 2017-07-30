@@ -2,6 +2,10 @@
 
 git add --all
 
-git commit -m "Auto commit at home"
+read -p "Commit description: " desc  
 
-git push origin scm
+git commit -m "$desc"
+
+read -p "Branch name: " branch
+
+git push origin $branch
