@@ -25,6 +25,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.windthunderstudio.scmanager.gui.elements.JFileChooserSystemLAF;
+import com.windthunderstudio.scmanager.gui.elements.LayerFileTrees;
 import com.windthunderstudio.scmanager.gui.elements.LayerPanelWithSection;
 import com.windthunderstudio.scmanager.gui.elements.LayerWorkspace;
 import com.windthunderstudio.scmanager.gui.elements.PlainButton;
@@ -45,7 +46,7 @@ public class MainFrame extends JFrame {
     private static final Logger log = LogManager.getLogger(MainFrame.class);
     private Properties localeProp = I18N_Manager.loadLocale();
     
-    //pricipal UI elements
+    /* pricipal UI elements */
     private PlainMenuBar menuBar;
     private JPanel content;
     private JPanel bot;
@@ -57,9 +58,17 @@ public class MainFrame extends JFrame {
     private PlainButton cancel;
     
     /* Layers */
-    private LayerWorkspace wsLayer;
+    private LayerWorkspace layerWS;
+    private LayerFileTrees layerFileTree;
+    /* for data */
+    public static File oldWSPath;
+    public static File newWSPath;
     
-    /* For reflection */ 
+    
+    /**
+     * All components to update text when locale changes.
+     */
+    /* For reflection */
     public static List<JComponent> allComponents;
     
     public MainFrame() {
@@ -85,9 +94,9 @@ public class MainFrame extends JFrame {
         content.setOpaque(false);
         content.setLayout(new CardLayout());
         
-        wsLayer = new LayerWorkspace(localeProp.getProperty(CTS.TEXT_LAYER_DESC_WS_HTML));
+        layerWS = new LayerWorkspace(localeProp.getProperty(CTS.TEXT_LAYER_DESC_WS_HTML));
         
-        
+        layerFileTree = new LayerFileTrees(localeProp.getProperty(CTS.TEXT_LAYER_DESC_FILETREE_HTML));
         
         
         /* Bot panel for back, next, process and cancel button. */
@@ -124,9 +133,9 @@ public class MainFrame extends JFrame {
         allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(PlainMenuItem.class.getName(), menuBar));
         allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(PlainMenu.class.getName(), menuBar));
         /* first layer */
-        allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(PlainLabel.class.getName(), wsLayer));
-        allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(JFileChooserSystemLAF.class.getName(), wsLayer));
-        allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(TitleLabel.class.getName(), wsLayer));
+        allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(PlainLabel.class.getName(), layerWS));
+        allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(JFileChooserSystemLAF.class.getName(), layerWS));
+        allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(TitleLabel.class.getName(), layerWS));
         
         
     }
@@ -146,4 +155,6 @@ public class MainFrame extends JFrame {
     public PlainButton getCancel() {
         return cancel;
     }
+    
+    
 }

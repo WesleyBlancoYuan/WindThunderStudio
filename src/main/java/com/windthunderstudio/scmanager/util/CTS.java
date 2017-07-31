@@ -13,10 +13,12 @@ public class CTS {
     /* *************************** Pan-app values ***********************************/
     public static final String APP_NAME = "app.name";
     public static final String PROPERTY_NAME_TEXT = "text"; //for propertyListener
-    
+    public static final String PREF_METADATA_ROOT = ".metadata";
+    public static final String PREF_RUNTIME_ROOT = ".metadata" + fsp + ".plugins" + fsp + "org.eclipse.core.runtime";
+    public static final String PREF_GLOB_FILTER = "*.pref"; 
     /* *************************** UI resources *************************************/
     public static final String FONT_FAMILY_NAME_WENQUAN = "WenQuanYi Micro Hei Mono";
-    
+    public static final String FONT_PATH_WENQUAN = "src/main/resources/fonts/wenq.micro.hei.mono.ttf";
     public static final String ICON_ALARM_PATH = "src/main/resources/icons/alarm.gif";
     
     /* *************************** Config value *************************************/
@@ -42,11 +44,16 @@ public class CTS {
     public static final String TEXT_MENUITEM_ABOUT = "text.menuitem.about";
     public static final String TEXT_LBL_OLD_WS_HTML = "text.lbl.old.ws.html";
     public static final String TEXT_LBL_NEW_WS_HTML = "text.lbl.new.ws.html";
+    public static final String TEXT_LBL_OLD_TREE = "text.lbl.old.tree";
+    public static final String TEXT_LBL_NEW_TREE = "text.lbl.new.tree";
     
     /* *************************** Layer **************************************/
     public static final String TEXT_LAYER_DESC_WS_HTML = "text.layer.desc.ws.html";
+    public static final String TEXT_LAYER_DESC_FILETREE_HTML = "text.layer.desc.filetree.html";
     
-    public static final String FONT_PATH_WENQUAN = "src/main/resources/fonts/wenq.micro.hei.mono.ttf";
+    /* *************************** Tree ***************************************/
+    public static final String TEXT_TREE_NODE_OLD_ROOT = "text.tree.node.old.root";
+    
     /* *************************** Dialog message and titles ************************/
     public static final String DIALOG_OPTION_YES =      "dialog.option.yes";
     public static final String DIALOG_OPTION_NO =       "dialog.option.no";

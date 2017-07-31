@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.windthunderstudio.scmanager.gui.MainFrame;
 import com.windthunderstudio.scmanager.util.CTS;
 import com.windthunderstudio.scmanager.util.I18N_Manager;
 
@@ -61,7 +62,7 @@ public class LayerWorkspace extends LayerPanelWithSection {
         oldChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         int oldStatus = oldChooser.showOpenDialog(this);
         if (oldStatus == JFileChooser.APPROVE_OPTION) {
-            lastLocationOld = oldChooser.getSelectedFile();
+            lastLocationOld = MainFrame.oldWSPath = oldChooser.getSelectedFile();
             log.debug("Last time chosen dir for old workspace: " + lastLocationNew.getPath());
         }
         
@@ -77,7 +78,7 @@ public class LayerWorkspace extends LayerPanelWithSection {
         newChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         int newStatus = newChooser.showOpenDialog(this);
         if (newStatus == JFileChooser.APPROVE_OPTION) {
-            lastLocationNew = newChooser.getSelectedFile();
+            lastLocationNew = MainFrame.newWSPath = newChooser.getSelectedFile();
             log.debug("Last time chosen dir for new workspace: " + lastLocationNew.getPath());
         }
         

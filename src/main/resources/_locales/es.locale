@@ -23,6 +23,11 @@ text.layer.desc.ws.html                     = <html>Seleccione los directorios d
 text.lbl.old.ws.html                        = <html>Ruta del espacio de trabajo antiguo: </html> 
 text.lbl.new.ws.html                        = <html>Ruta del espacio de trabajo nuevo: </html> 
 
+text.layer.desc.filetree.html               = <html>Revisa los ficheros a cambiar y los valores a actualizar: </html>
+
+text.lbl.old.tree                           = Todos los ficheros *.pref encontrados en el espacio de trabajo ANTIGUO: 
+text.lbl.new.tree                           = Todos los ficheros *.pref encontrados en el espacio de trabajo NUEVO: 
+
 dialog.option.yes                           = Sí
 dialog.option.no                            = No
 dialog.option.confirm                       = Confirmar

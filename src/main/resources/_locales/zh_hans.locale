@@ -23,6 +23,11 @@ text.layer.desc.ws.html                     = <html>\u8BF7\u9009\u62E9\u9700\u89
 text.lbl.old.ws.html                        = <html>\u65E7\u5DE5\u4F5C\u533A\u8DEF\u5F84\uFF1A</html> 
 text.lbl.new.ws.html                        = <html>\u65B0\u5DE5\u4F5C\u533A\u8DEF\u5F84\uFF1A</html> 
 
+text.layer.desc.filetree.html               = <html>\u8BF7\u68C0\u67E5\u5C06\u8981\u66F4\u65B0\u7684\u6587\u4EF6\u548C\u503C\uFF1A</html>
+
+text.lbl.old.tree                           = \u65E7\u5DE5\u4F5C\u533A\u4E2D\u6240\u6709\u7684 *.pref \u6587\u4EF6\uFF1A
+text.lbl.new.tree                           = \u65B0\u5DE5\u4F5C\u533A\u5185\u6240\u6709\u7684 *.pref \u6587\u4EF6\uFF1A
+
 dialog.option.cancel                        = \u53D6\u6D88
 dialog.option.confirm                       = \u786E\u8BA4
 dialog.option.no                            = \u5426
