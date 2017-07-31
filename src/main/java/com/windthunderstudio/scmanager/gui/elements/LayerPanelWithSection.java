@@ -12,9 +12,9 @@ import net.miginfocom.swing.MigLayout;
 public class LayerPanelWithSection extends JLayeredPane {
     private JPanel topSection;
     private JPanel centerSection;
-    /* top panel description */
+    /** top panel description */
     private String topDesc;
-    private TitleLabel topTitle;
+    protected TitleLabel topTitle;
     
     public LayerPanelWithSection() {
         super();
@@ -31,14 +31,11 @@ public class LayerPanelWithSection extends JLayeredPane {
         topSection = new JPanel();
         topSection.setOpaque(false);
         topSection.setLayout(new MigLayout("insets 5, fill", "[]", "[]"));
-        
         if (!CommonUtils.isBlankString(topDesc)) {
             topTitle = new TitleLabel();
             topTitle.setText(topDesc);
             topSection.add(topTitle, "grow");
         }
-        
-        
         this.add(topSection, "cell 0 0, grow");
         
         add(new JSeparator(SwingConstants.HORIZONTAL), "cell 0 1, grow");

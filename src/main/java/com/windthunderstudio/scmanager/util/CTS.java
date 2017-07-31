@@ -40,9 +40,11 @@ public class CTS {
     public static final String TEXT_BTN_PROCESS = "text.btn.process";
     public static final String TEXT_BTN_CANCEL = "text.btn.cancel";
     public static final String TEXT_MENUITEM_ABOUT = "text.menuitem.about";
+    public static final String TEXT_LBL_OLD_WS_HTML = "text.lbl.old.ws.html";
+    public static final String TEXT_LBL_NEW_WS_HTML = "text.lbl.new.ws.html";
     
     /* *************************** Layer **************************************/
-    public static final String TEXT_LAYER_DESC_HTML_WS = "text.layer.desc.html.ws";
+    public static final String TEXT_LAYER_DESC_WS_HTML = "text.layer.desc.ws.html";
     
     public static final String FONT_PATH_WENQUAN = "src/main/resources/fonts/wenq.micro.hei.mono.ttf";
     /* *************************** Dialog message and titles ************************/
@@ -50,10 +52,12 @@ public class CTS {
     public static final String DIALOG_OPTION_NO =       "dialog.option.no";
     public static final String DIALOG_OPTION_CONFIRM =  "dialog.option.confirm";
     public static final String DIALOG_OPTION_CANCEL =   "dialog.option.cancel";
+    public static final String DIALOG_OPTION_ACCEPT =   "dialog.option.accept";
     
     public static final String DIALOG_TEXT_CONFIRM_EXIT = "dialog.text.confirm.exit";
     public static final String DIALOG_TITLE_CONFIRM     = "dialog.title.confirm";
     public static final String DIALOG_TEXT_NOT_SUPPORTED_EXIT = "dialog.text.not.supported.exit";
+    public static final String DIALOG_TITLE_CHOOSE_WS = "dialog.title.choose.ws";
     // a classloader path: differ according to class package
     
     

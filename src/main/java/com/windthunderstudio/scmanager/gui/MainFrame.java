@@ -3,25 +3,36 @@ import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Properties;
 
 import javax.swing.JComponent;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.filechooser.FileSystemView;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.windthunderstudio.scmanager.gui.elements.JFileChooserSystemLAF;
 import com.windthunderstudio.scmanager.gui.elements.LayerPanelWithSection;
+import com.windthunderstudio.scmanager.gui.elements.LayerWorkspace;
 import com.windthunderstudio.scmanager.gui.elements.PlainButton;
+import com.windthunderstudio.scmanager.gui.elements.PlainLabel;
 import com.windthunderstudio.scmanager.gui.elements.PlainMenu;
+import com.windthunderstudio.scmanager.gui.elements.PlainMenuBar;
 import com.windthunderstudio.scmanager.gui.elements.PlainMenuItem;
+import com.windthunderstudio.scmanager.gui.elements.TitleLabel;
 import com.windthunderstudio.scmanager.util.CTS;
 import com.windthunderstudio.scmanager.util.ConfigReader;
 import com.windthunderstudio.scmanager.util.I18N_Manager;
@@ -35,19 +46,9 @@ public class MainFrame extends JFrame {
     private Properties localeProp = I18N_Manager.loadLocale();
     
     //pricipal UI elements
-    private JMenuBar menuBar;
+    private PlainMenuBar menuBar;
     private JPanel content;
     private JPanel bot;
-    
-    /* menu */
-    //menu lang
-    private PlainMenu lang;
-    private PlainMenuItem langES;
-    private PlainMenuItem langEN;
-    private PlainMenuItem langCN;
-    
-    //menuitem about
-    private PlainMenuItem about;
     
     /* buttons */
     private PlainButton back;
@@ -55,8 +56,11 @@ public class MainFrame extends JFrame {
     private PlainButton process;
     private PlainButton cancel;
     
+    /* Layers */
+    private LayerWorkspace wsLayer;
+    
     /* For reflection */ 
-    private List<JComponent> allComponents;
+    public static List<JComponent> allComponents;
     
     public MainFrame() {
         try {
@@ -71,97 +75,20 @@ public class MainFrame extends JFrame {
     
     private void createGUI() {
         setLayout(new MigLayout("insets 10, fill, debug", "", "[]5[]5[]"));
-        menuBar = new JMenuBar();
-//        add(menuBar, "cell 0 0, grow");
-        lang = new PlainMenu();
-        lang.setText(localeProp.getProperty(CTS.TEXT_MENU_LANG));
-        lang.setTextKey(CTS.TEXT_MENU_LANG);
-        lang.setMnemonic(KeyEvent.VK_L);
         
-        /* Lang - ES */
-        langES = new PlainMenuItem();
-        langES.setText(localeProp.getProperty(CTS.LOCALE_LANG_ES));
-        langES.setTextKey(CTS.LOCALE_LANG_ES);
-        langES.setMnemonic(KeyEvent.VK_S); //for showing it in English and Spanish menu
-        langES.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                I18N_Manager.isChinese = false;
-                ConfigReader.config(CTS.CONFIG_KEY_LOCALE, CTS.LOCALE_STR_ES);
-                ConfigReader.reloadConfig();
-                I18N_Manager.reloadLocale();
-                localeProp = I18N_Manager.loadLocale(); //load prop in this class
-                if (allComponents != null && !allComponents.isEmpty()) {
-                    for (JComponent c: allComponents) {
-                        ReflectionUIHandler.getAndSetProperty(c, I18N_Manager.loadLocale(), "TextKey", "Text");
-                        // after changing text, the font will be changed by the propertyChangeListener.
-                    }
-                }
-            }
-        });
-        lang.add(langES);
-        
-        /* Lang - EN */
-        langEN = new PlainMenuItem();
-        langEN.setText(localeProp.getProperty(CTS.LOCALE_LANG_EN));
-        langEN.setTextKey(CTS.LOCALE_LANG_EN);
-        langEN.setMnemonic(KeyEvent.VK_G);
-        langEN.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                I18N_Manager.isChinese = false;
-                ConfigReader.config(CTS.CONFIG_KEY_LOCALE, CTS.LOCALE_STR_EN);
-                ConfigReader.reloadConfig();
-                I18N_Manager.reloadLocale();
-                localeProp = I18N_Manager.loadLocale(); //load prop in this class
-                if (allComponents != null && !allComponents.isEmpty()) {
-                    for (JComponent c: allComponents) {
-                        ReflectionUIHandler.getAndSetProperty(c, I18N_Manager.loadLocale(), "TextKey", "Text");
-                        // after changing text, the font will be changed by the propertyChangeListener.
-                    }
-                }
-            }
-        });
-        lang.add(langEN);
-        
-        /* Lang - CN */
-        langCN = new PlainMenuItem();
-        langCN.setText(localeProp.getProperty(CTS.LOCALE_LANG_ZH_HANS));
-        langCN.setTextKey(CTS.LOCALE_LANG_ZH_HANS);
-        langCN.setMnemonic(KeyEvent.VK_C);
-        langCN.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                I18N_Manager.isChinese = true;
-                ConfigReader.config(CTS.CONFIG_KEY_LOCALE, CTS.LOCALE_STR_ZH_HANS);
-                ConfigReader.reloadConfig();
-                I18N_Manager.reloadLocale();
-                localeProp = I18N_Manager.loadLocale(); //load prop in this class
-                if (allComponents != null && !allComponents.isEmpty()) {
-                    for (JComponent c: allComponents) {
-                        ReflectionUIHandler.getAndSetProperty(c, I18N_Manager.loadLocale(), "TextKey", "Text");
-                        // after changing text, the font will be changed by the propertyChangeListener.
-                    }
-                }
-            }
-        });
-        lang.add(langCN);
-        
-        menuBar.add(lang);
-        
-        about = new PlainMenuItem();
-        about.setText(localeProp.getProperty(CTS.TEXT_MENUITEM_ABOUT));
-        about.setTextKey(CTS.TEXT_MENUITEM_ABOUT);
-        about.setMnemonic(KeyEvent.VK_A);
-        menuBar.add(about);
-        
+        /* Menu Bar */
+        menuBar = new PlainMenuBar();
+        setJMenuBar(menuBar);
         
         /* Content panel */
         content = new JPanel();
         content.setOpaque(false);
         content.setLayout(new CardLayout());
         
-        LayerPanelWithSection wsLayer = new LayerPanelWithSection(localeProp.getProperty(CTS.TEXT_LAYER_DESC_HTML_WS));
+        wsLayer = new LayerWorkspace(localeProp.getProperty(CTS.TEXT_LAYER_DESC_WS_HTML));
+        
+        
+        
         
         /* Bot panel for back, next, process and cancel button. */
         bot = new JPanel();
@@ -185,49 +112,38 @@ public class MainFrame extends JFrame {
         cancel.setMnemonic(KeyEvent.VK_C);
         bot.add(cancel, "cell 3 0, w 100!");
         
+        loadComponentsIntoList();
+    }
+
+    private void loadComponentsIntoList() {
+        allComponents = new ArrayList<JComponent>();
+        /* Container itself */
+        allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(PlainButton.class.getName(), this));
+        
+        /* MenuBar */
+        allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(PlainMenuItem.class.getName(), menuBar));
+        allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(PlainMenu.class.getName(), menuBar));
+        /* first layer */
+        allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(PlainLabel.class.getName(), wsLayer));
+        allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(JFileChooserSystemLAF.class.getName(), wsLayer));
+        allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(TitleLabel.class.getName(), wsLayer));
         
         
     }
 
-    private JPanel getContent() {
-        return content;
-    }
-
-    private PlainMenu getLang() {
-        return lang;
-    }
-
-    private PlainMenuItem getLangES() {
-        return langES;
-    }
-
-    private PlainMenuItem getLangEN() {
-        return langEN;
-    }
-
-    private PlainMenuItem getLangCN() {
-        return langCN;
-    }
-
-    private PlainMenuItem getAbout() {
-        return about;
-    }
-
-    private PlainButton getBack() {
+    public PlainButton getBack() {
         return back;
     }
 
-    private PlainButton getNext() {
+    public PlainButton getNext() {
         return next;
     }
 
-    private PlainButton getProcess() {
+    public PlainButton getProcess() {
         return process;
     }
 
-    private PlainButton getCancel() {
+    public PlainButton getCancel() {
         return cancel;
     }
-    
-    
 }

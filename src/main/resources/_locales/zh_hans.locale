@@ -2,7 +2,7 @@
 #     LOCALE PROPERTIES - SIMPLIFIED CHINESE
 #     AUTHOR            -  
 #     DATE              - 30/07/2017
-#     ENCODING          - UTF-8
+#     ENCODING          - ISO-8859-1
 ###############################################################################
 
 app.name                                    = \u7CFB\u7EDF\u6258\u76D8\u95F9\u949F
@@ -19,14 +19,17 @@ text.btn.next                               = \u4E0B\u4E00\u6B65
 text.btn.process                            = \u5F00\u59CB\u5904\u7406
 text.btn.cancel                             = \u53D6\u6D88
 
-text.layer.desc.html.ws                     = <html>\u8BF7\u9009\u62E9\u9700\u8981\u8FC1\u79FB\u7684\u7684\u4E24\u4E2A\u5DE5\u4F5C\u533A\u3002</html>
+text.layer.desc.ws.html                     = <html>\u8BF7\u9009\u62E9\u9700\u8981\u8FC1\u79FB\u7684\u65B0\u65E7\u4E24\u4E2A\u5DE5\u4F5C\u533A\uFF08.metadata\u7684\u7236\u6587\u4EF6\u5939\uFF09\uFF1A</html>
+text.lbl.old.ws.html                        = <html>\u65E7\u5DE5\u4F5C\u533A\u8DEF\u5F84\uFF1A</html> 
+text.lbl.new.ws.html                        = <html>\u65B0\u5DE5\u4F5C\u533A\u8DEF\u5F84\uFF1A</html> 
 
 dialog.option.cancel                        = \u53D6\u6D88
 dialog.option.confirm                       = \u786E\u8BA4
 dialog.option.no                            = \u5426
 dialog.option.yes                           = \u662F
+dialog.option.accept                        = \u786E\u5B9A
 
 dialog.text.confirm.exit                    = \u786E\u8BA4\u8981\u9000\u51FA {0} \u5417\uFF1F
-dialog.text.not.supported.exit              = \u5F53\u524D\u7CFB\u7EDF\u4E0D\u652F\u6301\u6258\u76D8\u3002\u9000\u51FA\u4E2D\u2026\u2026
 dialog.title.confirm                        = \u786E\u8BA4
+dialog.title.choose.ws                      = \u9009\u62E9\u5DE5\u4F5C\u533A
 

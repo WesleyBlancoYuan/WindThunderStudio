@@ -36,7 +36,10 @@ public class ReflectionUIHandler {
                     Method getter = ownerInstance.getClass().getDeclaredMethod(
                             "get" + field.getName().substring(0, 1).toUpperCase() + field.getName().substring(1),
                             (Class[]) null);
-
+                    if (getter == null) {
+                        log.error("Some variable of type " + className + " hasn't its getter defined in class " + ownerInstance.getClass().toString() + ". ");
+                        return null;
+                    }
                     // change access modifier
                     getter.setAccessible(true);
 

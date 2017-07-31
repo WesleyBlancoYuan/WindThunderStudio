@@ -9,6 +9,7 @@ public class I18N_Manager {
     private static final Logger log = LogManager.getLogger(I18N_Manager.class);
     private static Properties localeProp = loadLocaleProp();
     public static boolean isChinese;
+    public static String localeString;
     /**
      * Reload the locale settings, changing <code>I18N_Manager.localeProp</code>
      * according to the config file.
@@ -25,7 +26,7 @@ public class I18N_Manager {
     }
     
     private static Properties loadLocaleProp() {
-        String localeString = ConfigReader.loadConfig().getProperty(CTS.CONFIG_KEY_LOCALE);
+        localeString = ConfigReader.loadConfig().getProperty(CTS.CONFIG_KEY_LOCALE);
         String localePath = "";
         try {
             switch (localeString) {
