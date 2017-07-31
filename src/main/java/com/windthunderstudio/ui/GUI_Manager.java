@@ -26,6 +26,7 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.metal.MetalLookAndFeel;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -69,11 +70,11 @@ public class GUI_Manager {
 
     public GUI_Manager() {
         try {
-            UIManager.setLookAndFeel(new MetalLookAndFeel());
+            UIManager.setLookAndFeel(new NimbusLookAndFeel());
             FontManager fontManager = new FontManager();
             fontManager.registerFont();
         } catch (UnsupportedLookAndFeelException e) {
-            log.error("Metal Look&Feel not supported: ", e);
+            log.error("Nimbus Look&Feel not supported: ", e);
         }
         createGUI();
     }
@@ -177,6 +178,7 @@ public class GUI_Manager {
         jpop.add(lang);
         
         jpop.addSeparator();
+        
         /* Exit */
         exit = new PlainMenuItem();
         exit.setText(localeProp.getProperty(CTS.TEXT_MENUITEM_EXIT));
