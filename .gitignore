@@ -3,5 +3,4 @@
 .settings/**
 .project
 Logs/**
-/target/
-/bin/
+target
