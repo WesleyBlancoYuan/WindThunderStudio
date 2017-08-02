@@ -5,7 +5,7 @@
 #     ENCODING          - ISO-8859-1
 ###############################################################################
 
-app.name                                    = System Tray Alarm
+app.name                                    = Syntax Coloring Manager (SCM)
 
 text.menu.lang                              = Language
 locale.lang.es                              = Spanish
@@ -36,5 +36,4 @@ dialog.option.accept                        = Accept
 
 dialog.text.confirm.exit                    = Do you really want to exit {0}?
 dialog.title.confirm                        = Confirm
-
 dialog.title.choose.ws                      = Choose workspace

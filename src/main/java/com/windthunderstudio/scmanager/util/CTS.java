@@ -15,7 +15,8 @@ public class CTS {
     public static final String PROPERTY_NAME_TEXT = "text"; //for propertyListener
     public static final String PREF_METADATA_ROOT = ".metadata";
     public static final String PREF_RUNTIME_ROOT = ".metadata" + fsp + ".plugins" + fsp + "org.eclipse.core.runtime";
-    public static final String PREF_GLOB_FILTER = "*.pref"; 
+    public static final String PREF_GLOB_FILTER = "*.pref";
+    
     /* *************************** UI resources *************************************/
     public static final String FONT_FAMILY_NAME_WENQUAN = "WenQuanYi Micro Hei Mono";
     public static final String FONT_PATH_WENQUAN = "src/main/resources/fonts/wenq.micro.hei.mono.ttf";
@@ -34,6 +35,18 @@ public class CTS {
     public static final String LOCALE_LANG_ES = "locale.lang.es";
     public static final String LOCALE_LANG_EN = "locale.lang.en";
     public static final String LOCALE_LANG_ZH_HANS = "locale.lang.zh_hans";
+    
+    /* *************************** Dialog message and titles ************************/
+    public static final String DIALOG_OPTION_YES =      "dialog.option.yes";
+    public static final String DIALOG_OPTION_NO =       "dialog.option.no";
+    public static final String DIALOG_OPTION_CONFIRM =  "dialog.option.confirm";
+    public static final String DIALOG_OPTION_CANCEL =   "dialog.option.cancel";
+    public static final String DIALOG_OPTION_ACCEPT =   "dialog.option.accept";
+    
+    public static final String DIALOG_TEXT_CONFIRM_EXIT = "dialog.text.confirm.exit";
+    public static final String DIALOG_TITLE_CONFIRM     = "dialog.title.confirm";
+    public static final String DIALOG_TEXT_NOT_SUPPORTED_EXIT = "dialog.text.not.supported.exit";
+    public static final String DIALOG_TITLE_CHOOSE_WS = "dialog.title.choose.ws";
     
     /* *************************** UI elements text ***************************/
     public static final String TEXT_MENU_LANG = "text.menu.lang";
@@ -55,22 +68,8 @@ public class CTS {
     public static final String LAYER_NAME_WS = "layer.ws";
     public static final String LAYER_NAME_FT = "layer.ft";
     
-    
     /* *************************** Tree ***************************************/
     public static final String TEXT_TREE_NODE_OLD_ROOT = "text.tree.node.old.root";
-    
-    /* *************************** Dialog message and titles ************************/
-    public static final String DIALOG_OPTION_YES =      "dialog.option.yes";
-    public static final String DIALOG_OPTION_NO =       "dialog.option.no";
-    public static final String DIALOG_OPTION_CONFIRM =  "dialog.option.confirm";
-    public static final String DIALOG_OPTION_CANCEL =   "dialog.option.cancel";
-    public static final String DIALOG_OPTION_ACCEPT =   "dialog.option.accept";
-    
-    public static final String DIALOG_TEXT_CONFIRM_EXIT = "dialog.text.confirm.exit";
-    public static final String DIALOG_TITLE_CONFIRM     = "dialog.title.confirm";
-    public static final String DIALOG_TEXT_NOT_SUPPORTED_EXIT = "dialog.text.not.supported.exit";
-    public static final String DIALOG_TITLE_CHOOSE_WS = "dialog.title.choose.ws";
-    // a classloader path: differ according to class package
     
     
 }

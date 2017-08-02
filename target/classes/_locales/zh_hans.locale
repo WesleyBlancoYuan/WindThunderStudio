@@ -5,7 +5,7 @@
 #     ENCODING          - ISO-8859-1
 ###############################################################################
 
-app.name                                    = \u7CFB\u7EDF\u6258\u76D8\u95F9\u949F
+app.name                                    = Eclipse\u8BED\u6CD5\u9AD8\u4EAE\u8BBE\u7F6E\u8FC1\u79FB
 
 text.menu.lang                              = \u754C\u9762\u8BED\u8A00
 locale.lang.es                              = \u897F\u73ED\u7259\u8BED
@@ -28,10 +28,10 @@ text.layer.desc.filetree.html               = <html>\u8BF7\u68C0\u67E5\u5C06\u89
 text.lbl.old.tree                           = \u65E7\u5DE5\u4F5C\u533A\u4E2D\u6240\u6709\u7684 *.pref \u6587\u4EF6\uFF1A
 text.lbl.new.tree                           = \u65B0\u5DE5\u4F5C\u533A\u5185\u6240\u6709\u7684 *.pref \u6587\u4EF6\uFF1A
 
-dialog.option.cancel                        = \u53D6\u6D88
-dialog.option.confirm                       = \u786E\u8BA4
-dialog.option.no                            = \u5426
 dialog.option.yes                           = \u662F
+dialog.option.no                            = \u5426
+dialog.option.confirm                       = \u786E\u8BA4
+dialog.option.cancel                        = \u53D6\u6D88
 dialog.option.accept                        = \u786E\u5B9A
 
 dialog.text.confirm.exit                    = \u786E\u8BA4\u8981\u9000\u51FA {0} \u5417\uFF1F
