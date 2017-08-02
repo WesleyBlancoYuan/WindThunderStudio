@@ -22,9 +22,9 @@ text.btn.cancel                             = Cancel
 text.layer.desc.ws.html                     = <html>Select the old and new workspace directories (which containing ".metadata" folder):</html>
 text.lbl.old.ws.html                        = <html>Old workspace path: </html> 
 text.lbl.new.ws.html                        = <html>New workspace path: </html> 
+text.btn.choose                             = Choose workspace...
 
 text.layer.desc.filetree.html               = <html>Check the files to change and the values to update: </html>
-
 text.lbl.old.tree                           = All *.pref files in old workspace: 
 text.lbl.new.tree                           = All *.pref files in new workspace: 
 

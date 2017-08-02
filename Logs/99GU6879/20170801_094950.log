@@ -1,0 +1,48 @@
+DEBUG Id: 14, U: 99GU6879 - 01-08-2017 09:49:15:0873 com.windthunderstudio.scmanager.gui.elements.LayerWorkspace : <init>                        : Entering creating LayerWorkspace...
+DEBUG Id: 14, U: 99GU6879 - 01-08-2017 09:49:16:0660 com.windthunderstudio.scmanager.gui.elements.LayerWorkspace : <init>                        : Exiting creating LayerWorkspace...
+DEBUG Id: 14, U: 99GU6879 - 01-08-2017 09:49:16:0661 com.windthunderstudio.scmanager.gui.elements.LayerFileTrees : <init>                        : Entering creating LayerFileTrees...
+DEBUG Id: 14, U: 99GU6879 - 01-08-2017 09:49:16:0787 com.windthunderstudio.scmanager.gui.elements.LayerFileTrees : <init>                        : Exiting creating LayerFileTrees...
+DEBUG Id: 14, U: 99GU6879 - 01-08-2017 09:49:16:0795 com.windthunderstudio.scmanager.util.ReflectionUIHandler    : loadComponentsByClass         : Reflection error: 
+java.lang.NoSuchMethodException: com.windthunderstudio.scmanager.gui.elements.LayerWorkspace.getOldLocation()
+	at java.lang.Class.getDeclaredMethod(Class.java:2130) ~[?:1.8.0_111]
+	at com.windthunderstudio.scmanager.util.ReflectionUIHandler.loadComponentsByClass(ReflectionUIHandler.java:36) [classes/:?]
+	at com.windthunderstudio.scmanager.gui.MainFrame.loadComponentsIntoList(MainFrame.java:203) [classes/:?]
+	at com.windthunderstudio.scmanager.gui.MainFrame.createGUI(MainFrame.java:160) [classes/:?]
+	at com.windthunderstudio.scmanager.gui.MainFrame.<init>(MainFrame.java:92) [classes/:?]
+	at SCManagerLauncher$1.run(SCManagerLauncher.java:10) [classes/:?]
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:311) [?:1.8.0_111]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:756) [?:1.8.0_111]
+	at java.awt.EventQueue.access$500(EventQueue.java:97) [?:1.8.0_111]
+	at java.awt.EventQueue$3.run(EventQueue.java:709) [?:1.8.0_111]
+	at java.awt.EventQueue$3.run(EventQueue.java:703) [?:1.8.0_111]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:1.8.0_111]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76) [?:1.8.0_111]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:726) [?:1.8.0_111]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201) [?:1.8.0_111]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116) [?:1.8.0_111]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105) [?:1.8.0_111]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:1.8.0_111]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93) [?:1.8.0_111]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82) [?:1.8.0_111]
+DEBUG Id: 14, U: 99GU6879 - 01-08-2017 09:49:16:0808 com.windthunderstudio.scmanager.util.ReflectionUIHandler    : loadComponentsByClass         : Reflection error: 
+java.lang.NoSuchMethodException: com.windthunderstudio.scmanager.gui.elements.LayerWorkspace.getNewLocation()
+	at java.lang.Class.getDeclaredMethod(Class.java:2130) ~[?:1.8.0_111]
+	at com.windthunderstudio.scmanager.util.ReflectionUIHandler.loadComponentsByClass(ReflectionUIHandler.java:36) [classes/:?]
+	at com.windthunderstudio.scmanager.gui.MainFrame.loadComponentsIntoList(MainFrame.java:203) [classes/:?]
+	at com.windthunderstudio.scmanager.gui.MainFrame.createGUI(MainFrame.java:160) [classes/:?]
+	at com.windthunderstudio.scmanager.gui.MainFrame.<init>(MainFrame.java:92) [classes/:?]
+	at SCManagerLauncher$1.run(SCManagerLauncher.java:10) [classes/:?]
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:311) [?:1.8.0_111]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:756) [?:1.8.0_111]
+	at java.awt.EventQueue.access$500(EventQueue.java:97) [?:1.8.0_111]
+	at java.awt.EventQueue$3.run(EventQueue.java:709) [?:1.8.0_111]
+	at java.awt.EventQueue$3.run(EventQueue.java:703) [?:1.8.0_111]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:1.8.0_111]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76) [?:1.8.0_111]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:726) [?:1.8.0_111]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201) [?:1.8.0_111]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116) [?:1.8.0_111]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105) [?:1.8.0_111]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:1.8.0_111]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93) [?:1.8.0_111]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82) [?:1.8.0_111]

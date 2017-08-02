@@ -6,6 +6,7 @@ import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.IOException;
 
+import javax.swing.JComponent;
 import javax.swing.UIManager;
 
 import org.apache.logging.log4j.LogManager;
@@ -25,7 +26,7 @@ public class FontManager {
     public static Font WQ_BOLD;
     public static Font WQ_PLAIN;
     
-    public void registerFont() {
+    public static void registerFont() {
         if (!I18N_Manager.isChinese) {
             configDialogFont(ARIAL_PLAIN);
         } else {
@@ -36,8 +37,8 @@ public class FontManager {
                 ge.registerFont(wenquanPlain);
                 //must assign font with new, if is JOptionPane. If is JLabel, can just use 
                 //with deriveFont()
-                WQ_BOLD = new Font(CTS.FONT_FAMILY_NAME_WENQUAN, Font.BOLD, 14);
-                WQ_PLAIN = new Font(CTS.FONT_FAMILY_NAME_WENQUAN, Font.PLAIN, 14);
+                WQ_BOLD = new Font(CTS.FONT_FAMILY_NAME_WENQUAN, Font.BOLD, 15);
+                WQ_PLAIN = new Font(CTS.FONT_FAMILY_NAME_WENQUAN, Font.PLAIN, 15);
                 
                 configDialogFont(WQ_PLAIN);
             } catch (IOException e) {
@@ -48,9 +49,32 @@ public class FontManager {
         }
     }
     
-    public void configDialogFont(Font font) {
+    private static void configDialogFont(Font font) {
         UIManager.put("OptionPane.messageFont", font);
         UIManager.put("OptionPane.buttonFont", font);
         UIManager.put("OptionPane.font", font);
     }
+    
+    public static void changeFontWithStyle(JComponent c) {
+        try {
+            if (I18N_Manager.isChinese) {
+                if (c.getFont().getStyle() == Font.BOLD) {
+                    c.setFont(FontManager.WQ_BOLD);
+                } else {
+                    c.setFont(FontManager.WQ_PLAIN);
+                }
+            } else {
+                if (c.getFont().getStyle() == Font.BOLD) {
+                    c.setFont(FontManager.ARIAL_BOLD);
+                } else {
+                    c.setFont(FontManager.ARIAL_PLAIN);
+                }
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Error on the component of class " + 
+                    c.getClass().getName() + ": ", e);
+        }
+        
+    }
+    
 }

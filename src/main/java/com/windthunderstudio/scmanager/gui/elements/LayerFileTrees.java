@@ -25,8 +25,8 @@ public class LayerFileTrees extends LayerPanelWithSection {
         return super.topTitle;
     }
     
-    public LayerFileTrees(String topDesc) {
-        super(topDesc);
+    public LayerFileTrees(String topDesc, String textKey) {
+        super(topDesc, textKey);
         log.debug("Entering creating LayerFileTrees...");
         createLayerFileTrees();
         log.debug("Exiting creating LayerFileTrees...");

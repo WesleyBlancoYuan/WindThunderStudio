@@ -44,12 +44,17 @@ public class CTS {
     public static final String TEXT_MENUITEM_ABOUT = "text.menuitem.about";
     public static final String TEXT_LBL_OLD_WS_HTML = "text.lbl.old.ws.html";
     public static final String TEXT_LBL_NEW_WS_HTML = "text.lbl.new.ws.html";
+    public static final String TEXT_BTN_CHOOSE = "text.btn.choose";
     public static final String TEXT_LBL_OLD_TREE = "text.lbl.old.tree";
     public static final String TEXT_LBL_NEW_TREE = "text.lbl.new.tree";
     
     /* *************************** Layer **************************************/
     public static final String TEXT_LAYER_DESC_WS_HTML = "text.layer.desc.ws.html";
     public static final String TEXT_LAYER_DESC_FILETREE_HTML = "text.layer.desc.filetree.html";
+    
+    public static final String LAYER_NAME_WS = "layer.ws";
+    public static final String LAYER_NAME_FT = "layer.ft";
+    
     
     /* *************************** Tree ***************************************/
     public static final String TEXT_TREE_NODE_OLD_ROOT = "text.tree.node.old.root";

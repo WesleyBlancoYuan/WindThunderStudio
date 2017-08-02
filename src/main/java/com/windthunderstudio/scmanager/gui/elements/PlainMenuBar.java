@@ -1,5 +1,6 @@
 package com.windthunderstudio.scmanager.gui.elements;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -10,6 +11,7 @@ import java.util.Properties;
 import javax.swing.JComponent;
 import javax.swing.JMenuBar;
 
+import com.windthunderstudio.scmanager.gui.FontManager;
 import com.windthunderstudio.scmanager.gui.MainFrame;
 import com.windthunderstudio.scmanager.util.CTS;
 import com.windthunderstudio.scmanager.util.ConfigReader;
@@ -51,12 +53,18 @@ public class PlainMenuBar extends JMenuBar {
                 ConfigReader.reloadConfig();
                 I18N_Manager.reloadLocale();
                 localeProp = I18N_Manager.loadLocale(); //load prop in this class
-                if (MainFrame.allComponents != null && !MainFrame.allComponents.isEmpty()) {
-                    for (JComponent c: MainFrame.allComponents) {
-                        ReflectionUIHandler.getAndSetProperty(c, I18N_Manager.loadLocale(), "TextKey", "Text");
+                if (MainFrame.textComponents != null && !MainFrame.textComponents.isEmpty()) {
+                    for (JComponent c: MainFrame.textComponents) {
+                        ReflectionUIHandler.getAndSetProperty(c, localeProp, "TextKey", "Text");
                         // after changing text, the font will be changed by the propertyChangeListener.
                     }
                 }
+                if (MainFrame.fontComponents != null && !MainFrame.fontComponents.isEmpty()) {
+                    for (JComponent c: MainFrame.fontComponents) {
+                        FontManager.changeFontWithStyle(c);
+                    }
+                }
+                
             }
         });
         lang.add(langES);
@@ -74,10 +82,15 @@ public class PlainMenuBar extends JMenuBar {
                 ConfigReader.reloadConfig();
                 I18N_Manager.reloadLocale();
                 localeProp = I18N_Manager.loadLocale(); //load prop in this class
-                if (MainFrame.allComponents != null && !MainFrame.allComponents.isEmpty()) {
-                    for (JComponent c: MainFrame.allComponents) {
-                        ReflectionUIHandler.getAndSetProperty(c, I18N_Manager.loadLocale(), "TextKey", "Text");
+                if (MainFrame.textComponents != null && !MainFrame.textComponents.isEmpty()) {
+                    for (JComponent c: MainFrame.textComponents) {
+                        ReflectionUIHandler.getAndSetProperty(c, localeProp, "TextKey", "Text");
                         // after changing text, the font will be changed by the propertyChangeListener.
+                    }
+                }
+                if (MainFrame.fontComponents != null && !MainFrame.fontComponents.isEmpty()) {
+                    for (JComponent c: MainFrame.fontComponents) {
+                        FontManager.changeFontWithStyle(c);
                     }
                 }
             }
@@ -97,10 +110,17 @@ public class PlainMenuBar extends JMenuBar {
                 ConfigReader.reloadConfig();
                 I18N_Manager.reloadLocale();
                 localeProp = I18N_Manager.loadLocale(); //load prop in this class
-                if (MainFrame.allComponents != null && !MainFrame.allComponents.isEmpty()) {
-                    for (JComponent c: MainFrame.allComponents) {
-                        ReflectionUIHandler.getAndSetProperty(c, I18N_Manager.loadLocale(), "TextKey", "Text");
+                if (MainFrame.textComponents != null && !MainFrame.textComponents.isEmpty()) {
+                    for (JComponent c: MainFrame.textComponents) {
+                        ReflectionUIHandler.getAndSetProperty(c, localeProp, "TextKey", "Text");
                         // after changing text, the font will be changed by the propertyChangeListener.
+                        c.revalidate();
+                    }
+                }
+                if (MainFrame.fontComponents != null && !MainFrame.fontComponents.isEmpty()) {
+                    for (JComponent c: MainFrame.fontComponents) {
+                        FontManager.changeFontWithStyle(c);
+                        c.revalidate();
                     }
                 }
             }
@@ -109,10 +129,19 @@ public class PlainMenuBar extends JMenuBar {
         
         add(lang);
         
-        about = new PlainMenuItem();
+        about = new PlainMenuItem() { //avoid too long last JMenuItem
+            @Override
+            public Dimension getMaximumSize() {
+                Dimension d1 = getPreferredSize();
+                Dimension d2 = super.getMaximumSize();
+                d2.width = d1.width;
+                return d2;
+            }
+        };
         about.setText(localeProp.getProperty(CTS.TEXT_MENUITEM_ABOUT));
         about.setTextKey(CTS.TEXT_MENUITEM_ABOUT);
         about.setMnemonic(KeyEvent.VK_A);
+        about.setPreferredSize(about.getPreferredSize());
         add(about);
         
     }

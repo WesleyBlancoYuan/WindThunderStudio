@@ -22,9 +22,9 @@ text.btn.cancel                             = Cancelar
 text.layer.desc.ws.html                     = <html>Seleccione los directorios del antiguo y nuevo espacio de trabajo (los que contengan la carpeta ".metadata"):</html>
 text.lbl.old.ws.html                        = <html>Ruta del espacio de trabajo antiguo: </html> 
 text.lbl.new.ws.html                        = <html>Ruta del espacio de trabajo nuevo: </html> 
+text.btn.choose                             = Seleccionar...
 
 text.layer.desc.filetree.html               = <html>Revisa los ficheros a cambiar y los valores a actualizar: </html>
-
 text.lbl.old.tree                           = Todos los ficheros *.pref encontrados en el espacio de trabajo ANTIGUO: 
 text.lbl.new.tree                           = Todos los ficheros *.pref encontrados en el espacio de trabajo NUEVO: 
 

@@ -1,5 +1,7 @@
 package com.windthunderstudio.scmanager.gui.elements;
 
+import java.awt.Dimension;
+
 import javax.swing.JMenuItem;
 import javax.swing.SwingConstants;
 
@@ -19,6 +21,8 @@ public class PlainMenuItem extends JMenuItem implements LocaleChangeController {
     public String getTextKey() {
         return textKey;
     }
+    
+    
     
     public PlainMenuItem() {
         super();

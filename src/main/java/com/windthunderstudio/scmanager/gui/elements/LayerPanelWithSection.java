@@ -16,24 +16,21 @@ public class LayerPanelWithSection extends JLayeredPane {
     private String topDesc;
     protected TitleLabel topTitle;
     
-    public LayerPanelWithSection() {
-        super();
-    }
     
-    public LayerPanelWithSection(String desc) {
-        this();
+    public LayerPanelWithSection(String desc, String textKey) {
+        super();
         this.topDesc = desc;
+        topTitle = new TitleLabel(desc);
+        topTitle.setTextKey(textKey);
     }
     
     public void createSections() {
-        setLayout(new MigLayout("insets 5, fill, debug", "[]", "[]0[]0[]"));
+        setLayout(new MigLayout("insets 5, fill", "[]", "[]0[]0[fill, grow]"));
         
         topSection = new JPanel();
         topSection.setOpaque(false);
         topSection.setLayout(new MigLayout("insets 5, fill", "[]", "[]"));
         if (!CommonUtils.isBlankString(topDesc)) {
-            topTitle = new TitleLabel();
-            topTitle.setText(topDesc);
             topSection.add(topTitle, "grow");
         }
         this.add(topSection, "cell 0 0, grow");
@@ -63,4 +60,9 @@ public class LayerPanelWithSection extends JLayeredPane {
         this.centerSection = centerSection;
     }
 
+    public TitleLabel getTopTitle() {
+        return topTitle;
+    }
+
+    
 }

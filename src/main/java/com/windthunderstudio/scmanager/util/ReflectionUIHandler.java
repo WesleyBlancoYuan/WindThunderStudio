@@ -22,12 +22,12 @@ public class ReflectionUIHandler {
      * @param ownerInstance the instance who is the owner of all the fields
      * @return list of objects (of subtype of JComponent)
      */
-    public static List<JComponent> loadComponentsByClass(String className, Object ownerInstance) {
+    public static List<JComponent> loadComponentsByClass(String className, Object ownerInstance, boolean searchSuper) {
         List<JComponent> listComponents = new ArrayList<JComponent>();
         
         // get all declared fields
         Field fields[] = ownerInstance.getClass().getDeclaredFields();
-
+        Field superFields[] = ownerInstance.getClass().getSuperclass().getDeclaredFields();
         for (Field field : fields) {
             // search in the field the given className
             if (field.getType().getName().equalsIgnoreCase(className)) {
@@ -52,6 +52,35 @@ public class ReflectionUIHandler {
                     }
                 } catch (Exception e) {
                     log.debug("Reflection error: ", e);
+                }
+            }
+        }
+        if (searchSuper) {
+            for (Field field : superFields) {
+                // search in the field the given className
+                if (field.getType().getName().equalsIgnoreCase(className)) {
+                    try {
+                        // obtain the getter method
+                        Method getter = ownerInstance.getClass().getDeclaredMethod(
+                                "get" + field.getName().substring(0, 1).toUpperCase() + field.getName().substring(1),
+                                (Class[]) null);
+                        if (getter == null) {
+                            log.error("Some variable of type " + className + " hasn't its getter defined in superclass of " + ownerInstance.getClass().toString() + ". ");
+                            return null;
+                        }
+                        // change access modifier
+                        getter.setAccessible(true);
+    
+                        // call this method from the class where the field is defined
+                        Object objeto = getter.invoke(ownerInstance, (Object[]) null);
+    
+                        // if getter gets result, save the object
+                        if (objeto != null) {
+                            listComponents.add((JComponent) objeto);
+                        }
+                    } catch (Exception e) {
+                        log.debug("Reflection error: ", e);
+                    }
                 }
             }
         }
@@ -96,7 +125,7 @@ public class ReflectionUIHandler {
             getter.setAccessible(true);
             Object key = getter.invoke(component, (Object[])null);
             if (key == null) {
-                log.error("The component has no value defined for the property " + originProperty);
+                log.error("The component of type " + component.getClass() + " has no value defined for the property " + originProperty);
             }
             //get the getProperty() method, and call it.
             Method getPropertyMethod = locale.getClass().getMethod("getProperty", key.getClass());

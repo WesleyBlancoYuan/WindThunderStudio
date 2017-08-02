@@ -23,7 +23,7 @@ public class PlainButton extends JButton implements LocaleChangeController{
     public PlainButton() {
         super();
         setFont(FontManager.ARIAL_PLAIN);
-        this.setHorizontalAlignment(SwingConstants.LEADING);
+        this.setHorizontalAlignment(SwingConstants.CENTER);
         this.setVerticalAlignment(SwingConstants.CENTER);
         this.addPropertyChangeListener(CTS.PROPERTY_NAME_TEXT, new LocaleListenerForFont());
     }
