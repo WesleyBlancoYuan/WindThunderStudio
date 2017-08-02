@@ -2,6 +2,7 @@
 #     LOCALE PROPERTIES - SPANISH
 #     AUTHOR            -  
 #     DATE              - 20/07/2017
+#     ENCODING          - ISO-8859-1
 ###############################################################################
 
 app.name                                    = System Tray Alarm
@@ -10,11 +11,11 @@ locale.lang.es                              = Español
 locale.lang.en                              = Inglés
 locale.lang.zh_hans                         = Chino Simplificado
 
-text.menuitem.exit                          = Salir
 text.lbl.action                             = Acciones
 text.lbl.config                             = Configuración
 text.menu.lang                              = Lenguaje 
-                                            
+text.menuitem.exit                          = Salir
+
 dialog.option.yes                           = Sí
 dialog.option.no                            = No
 dialog.option.confirm                       = Confirmar

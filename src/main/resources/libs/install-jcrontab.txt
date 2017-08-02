@@ -1,0 +1,2 @@
+
+install:install-file -Dfile="D:\desarrollo\Java environment\lib\jcrontab.jar" -DgroupId=jcrontab -DartifactId=jcrontab -Dversion=4.0.0 -Dpackaging=jar

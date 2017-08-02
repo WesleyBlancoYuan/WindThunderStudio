@@ -2,8 +2,6 @@ package com.windthunderstudio.ui;
 
 import java.awt.AWTException;
 import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.GraphicsEnvironment;
 import java.awt.SystemTray;
 import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
@@ -12,7 +10,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
-import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,16 +17,14 @@ import java.util.Properties;
 
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.plaf.metal.MetalLookAndFeel;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jcrontab.Crontab;
 
 import com.windthunderstudio.logic.util.CTS;
 import com.windthunderstudio.logic.util.ConfigReader;
@@ -40,6 +35,7 @@ import com.windthunderstudio.ui.elements.menu.PlainMenu;
 import com.windthunderstudio.ui.elements.menu.PopupMenuForAlarm;
 import com.windthunderstudio.ui.elements.menuitem.BoldLabel;
 import com.windthunderstudio.ui.elements.menuitem.PlainMenuItem;
+
 
 public class GUI_Manager {
     
@@ -71,8 +67,7 @@ public class GUI_Manager {
     public GUI_Manager() {
         try {
             UIManager.setLookAndFeel(new NimbusLookAndFeel());
-            FontManager fontManager = new FontManager();
-            fontManager.registerFont();
+            FontManager.registerFont();
         } catch (UnsupportedLookAndFeelException e) {
             log.error("Nimbus Look&Feel not supported: ", e);
         }
@@ -89,6 +84,8 @@ public class GUI_Manager {
         actions.setText(localeProp.getProperty(CTS.TEXT_LBL_ACTION));
         actions.setTextKey(CTS.TEXT_LBL_ACTION);
         jpop.add(actions);
+        
+        Crontab tabCrontab = Crontab.getInstance();
         
         jpop.addSeparator();
         /* Config part */
@@ -174,10 +171,9 @@ public class GUI_Manager {
         });
         lang.add(langCN);
         
-        
         jpop.add(lang);
-        
         jpop.addSeparator();
+        
         
         /* Exit */
         exit = new PlainMenuItem();

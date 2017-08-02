@@ -36,7 +36,10 @@ public class ReflectionUIHandler {
                     Method getter = ownerInstance.getClass().getDeclaredMethod(
                             "get" + field.getName().substring(0, 1).toUpperCase() + field.getName().substring(1),
                             (Class[]) null);
-
+                    if (getter == null) {
+                        log.error("Some variable of type " + className + " hasn't its getter defined in class " + ownerInstance.getClass().toString() + ". ");
+                        return null;
+                    }
                     // change access modifier
                     getter.setAccessible(true);
 
@@ -93,7 +96,7 @@ public class ReflectionUIHandler {
             getter.setAccessible(true);
             Object key = getter.invoke(component, (Object[])null);
             if (key == null) {
-                log.error("The component has no value defined for the property " + originProperty);
+                log.error("The component of type " + component.getClass() + " has no value defined for the property " + originProperty);
             }
             //get the getProperty() method, and call it.
             Method getPropertyMethod = locale.getClass().getMethod("getProperty", key.getClass());

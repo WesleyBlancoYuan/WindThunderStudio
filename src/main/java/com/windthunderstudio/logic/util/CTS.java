@@ -16,7 +16,7 @@ public class CTS {
     
     /* *************************** UI resources *************************************/
     public static final String FONT_FAMILY_NAME_WENQUAN = "WenQuanYi Micro Hei Mono";
-    
+    public static final String FONT_PATH_WENQUAN = "src/main/resources/fonts/wenq.micro.hei.mono.ttf";
     public static final String ICON_ALARM_PATH = "src/main/resources/icons/alarm.gif";
     
     /* *************************** Config value *************************************/
@@ -33,13 +33,6 @@ public class CTS {
     public static final String LOCALE_LANG_EN = "locale.lang.en";
     public static final String LOCALE_LANG_ZH_HANS = "locale.lang.zh_hans";
     
-    /* *************************** Menu label/button/menu text ***************************/
-    public static final String TEXT_MENUITEM_EXIT = "text.menuitem.exit";
-    public static final String TEXT_LBL_ACTION = "text.lbl.action";
-    public static final String TEXT_LBL_CONFIG = "text.lbl.config";
-    public static final String TEXT_MENU_LANG = "text.menu.lang";
-    
-    public static final String FONT_PATH_WENQUAN = "src/main/resources/fonts/wenq.micro.hei.mono.ttf";
     /* *************************** Dialog message and titles ************************/
     public static final String DIALOG_OPTION_YES =      "dialog.option.yes";
     public static final String DIALOG_OPTION_NO =       "dialog.option.no";
@@ -49,7 +42,12 @@ public class CTS {
     public static final String DIALOG_TEXT_CONFIRM_EXIT = "dialog.text.confirm.exit";
     public static final String DIALOG_TITLE_CONFIRM     = "dialog.title.confirm";
     public static final String DIALOG_TEXT_NOT_SUPPORTED_EXIT = "dialog.text.not.supported.exit";
-    // a classloader path: differ according to class package
+    
+    /* *************************** Menu label/button/menu text ***************************/
+    public static final String TEXT_MENUITEM_EXIT = "text.menuitem.exit";
+    public static final String TEXT_LBL_ACTION = "text.lbl.action";
+    public static final String TEXT_LBL_CONFIG = "text.lbl.config";
+    public static final String TEXT_MENU_LANG = "text.menu.lang";
     
     
 }
