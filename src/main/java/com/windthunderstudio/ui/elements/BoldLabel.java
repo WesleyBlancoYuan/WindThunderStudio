@@ -1,4 +1,4 @@
-package com.windthunderstudio.ui.elements.menuitem;
+package com.windthunderstudio.ui.elements;
 
 import java.awt.Font;
 import java.awt.FontMetrics;
@@ -8,7 +8,7 @@ import javax.swing.SwingConstants;
 
 import com.windthunderstudio.logic.util.CTS;
 import com.windthunderstudio.ui.controller.FontManager;
-import com.windthunderstudio.ui.elements.LocaleChangeController;
+import com.windthunderstudio.ui.controller.LocaleChangeController;
 import com.windthunderstudio.ui.listener.LocaleListenerForFont;
 
 public class BoldLabel extends JLabel implements LocaleChangeController {

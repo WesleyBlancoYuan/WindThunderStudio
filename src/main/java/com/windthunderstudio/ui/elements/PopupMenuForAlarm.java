@@ -1,4 +1,4 @@
-package com.windthunderstudio.ui.elements.menu;
+package com.windthunderstudio.ui.elements;
 
 import java.util.List;
 import java.util.Properties;

@@ -1,11 +1,11 @@
-package com.windthunderstudio.ui.elements.menuitem;
+package com.windthunderstudio.ui.elements;
 
 import javax.swing.JMenuItem;
 import javax.swing.SwingConstants;
 
 import com.windthunderstudio.logic.util.CTS;
 import com.windthunderstudio.ui.controller.FontManager;
-import com.windthunderstudio.ui.elements.LocaleChangeController;
+import com.windthunderstudio.ui.controller.LocaleChangeController;
 import com.windthunderstudio.ui.listener.LocaleListenerForFont;
 
 public class PlainMenuItem extends JMenuItem implements LocaleChangeController {

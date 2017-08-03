@@ -31,18 +31,18 @@ import com.windthunderstudio.logic.util.ConfigReader;
 import com.windthunderstudio.logic.util.I18N_Manager;
 import com.windthunderstudio.logic.util.ReflectionUIHandler;
 import com.windthunderstudio.ui.controller.FontManager;
-import com.windthunderstudio.ui.elements.menu.PlainMenu;
-import com.windthunderstudio.ui.elements.menu.PopupMenuForAlarm;
-import com.windthunderstudio.ui.elements.menuitem.BoldLabel;
-import com.windthunderstudio.ui.elements.menuitem.PlainMenuItem;
+import com.windthunderstudio.ui.elements.BoldLabel;
+import com.windthunderstudio.ui.elements.PlainMenu;
+import com.windthunderstudio.ui.elements.PlainMenuItem;
+import com.windthunderstudio.ui.elements.PopupMenuForAlarm;
 
 
 public class GUI_Manager {
     
     private static final Logger log = LogManager.getLogger(GUI_Manager.class);
+    private Properties localeProp = I18N_Manager.loadLocale();
     private ImageIcon icon;
     private TrayIcon trayIcon;
-    private Properties localeProp = I18N_Manager.loadLocale();
     private static SystemTray tray;
     private PopupMenuForAlarm jpop;
     public Font WQ_PLAIN_14;
@@ -50,12 +50,14 @@ public class GUI_Manager {
     
     /* UI elements */
     private BoldLabel actions;
+    private PlainMenuItem task;
     private BoldLabel config;
     private PlainMenu lang;
     private PlainMenuItem langES;
     private PlainMenuItem langEN;
     private PlainMenuItem langCN;
     private PlainMenuItem exit;
+    private Crontab ct;
     
     /* For reflection */ 
     private List<JComponent> allComponents;
@@ -68,8 +70,12 @@ public class GUI_Manager {
         try {
             UIManager.setLookAndFeel(new NimbusLookAndFeel());
             FontManager.registerFont();
+            ct = Crontab.getInstance();
+            ct.init(ConfigReader.loadConfig());
         } catch (UnsupportedLookAndFeelException e) {
             log.error("Nimbus Look&Feel not supported: ", e);
+        } catch (Exception e) {
+            log.error("Error initializing task scheduler: ", e);
         }
         createGUI();
     }
@@ -85,7 +91,17 @@ public class GUI_Manager {
         actions.setTextKey(CTS.TEXT_LBL_ACTION);
         jpop.add(actions);
         
-        Crontab tabCrontab = Crontab.getInstance();
+        task = new PlainMenuItem(localeProp.getProperty(CTS.TEXT_MENU_TASK));
+        task.setTextKey(CTS.TEXT_MENU_TASK);
+        task.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TaskDialog tasks = new TaskDialog();
+            }
+        });
+        
+        jpop.add(task);
         
         jpop.addSeparator();
         /* Config part */
@@ -292,6 +308,11 @@ public class GUI_Manager {
 
     public void setActions(BoldLabel actions) {
         this.actions = actions;
+    }
+
+    
+    public PlainMenuItem getTask() {
+        return task;
     }
 
     public BoldLabel getConfig() {

@@ -1,4 +1,4 @@
-package com.windthunderstudio.ui.elements.menu;
+package com.windthunderstudio.ui.elements;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -7,7 +7,7 @@ import javax.swing.JMenu;
 
 import com.windthunderstudio.logic.util.CTS;
 import com.windthunderstudio.ui.controller.FontManager;
-import com.windthunderstudio.ui.elements.LocaleChangeController;
+import com.windthunderstudio.ui.controller.LocaleChangeController;
 import com.windthunderstudio.ui.listener.LocaleListenerForFont;
 
 

@@ -15,6 +15,8 @@ text.lbl.action                             = Actions
 text.lbl.config                             = Config
 text.menu.lang                              = Language
 text.menuitem.exit                          = Exit
+text.menu.task                              = Manage task
+
 
 dialog.option.yes                           = Yes
 dialog.option.no                            = No
@@ -24,3 +26,9 @@ dialog.option.cancel                        = Cancel
 dialog.text.confirm.exit                    = Do you really want to exit {0}?
 dialog.title.confirm                        = Confirm
 dialog.text.not.supported.exit              = System tray is not supported in this platform. Exiting now...
+
+dialog.title.manage.task                    = Alarm management
+dialog.text.manage.task                     = Create, edit, or delete an alarm:
+
+table.colname.task.name                     = Task Name
+table.colname.task.desc                     = Description

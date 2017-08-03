@@ -1,4 +1,4 @@
-package com.windthunderstudio.ui.elements;
+package com.windthunderstudio.ui.controller;
 
 /**
  * Interface for all UI elements to implement, to remind them
