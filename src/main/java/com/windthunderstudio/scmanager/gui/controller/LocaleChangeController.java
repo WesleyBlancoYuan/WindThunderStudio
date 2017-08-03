@@ -1,4 +1,4 @@
-package com.windthunderstudio.scmanager.gui;
+package com.windthunderstudio.scmanager.gui.controller;
 
 /**
  * Interface for all UI elements to implement, to remind them

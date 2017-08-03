@@ -11,8 +11,8 @@ import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import com.windthunderstudio.scmanager.gui.FontManager;
-import com.windthunderstudio.scmanager.gui.LocaleChangeController;
+import com.windthunderstudio.scmanager.gui.controller.FontManager;
+import com.windthunderstudio.scmanager.gui.controller.LocaleChangeController;
 import com.windthunderstudio.scmanager.util.CTS;
 import com.windthunderstudio.scmanager.util.I18N_Manager;
 

@@ -11,8 +11,8 @@ import java.util.Properties;
 import javax.swing.JComponent;
 import javax.swing.JMenuBar;
 
-import com.windthunderstudio.scmanager.gui.FontManager;
 import com.windthunderstudio.scmanager.gui.MainFrame;
+import com.windthunderstudio.scmanager.gui.controller.FontManager;
 import com.windthunderstudio.scmanager.util.CTS;
 import com.windthunderstudio.scmanager.util.ConfigReader;
 import com.windthunderstudio.scmanager.util.I18N_Manager;

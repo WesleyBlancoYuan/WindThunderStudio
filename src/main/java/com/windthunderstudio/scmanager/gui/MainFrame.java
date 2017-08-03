@@ -27,6 +27,7 @@ import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.windthunderstudio.scmanager.gui.controller.FontManager;
 import com.windthunderstudio.scmanager.gui.elements.JFileChooserSystemLAF;
 import com.windthunderstudio.scmanager.gui.elements.LayerFileTrees;
 import com.windthunderstudio.scmanager.gui.elements.LayerPanelWithSection;
@@ -41,7 +42,6 @@ import com.windthunderstudio.scmanager.util.CTS;
 import com.windthunderstudio.scmanager.util.ConfigReader;
 import com.windthunderstudio.scmanager.util.I18N_Manager;
 import com.windthunderstudio.scmanager.util.ReflectionUIHandler;
-import com.windthunderstudio.scmanager.gui.FontManager;
 
 import net.miginfocom.swing.MigLayout;
 

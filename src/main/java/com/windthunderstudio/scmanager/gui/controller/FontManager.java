@@ -1,4 +1,4 @@
-package com.windthunderstudio.scmanager.gui;
+package com.windthunderstudio.scmanager.gui.controller;
 
 import java.awt.Font;
 import java.awt.FontFormatException;

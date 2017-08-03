@@ -5,9 +5,9 @@ import java.awt.Dimension;
 import javax.swing.JMenuItem;
 import javax.swing.SwingConstants;
 
-import com.windthunderstudio.scmanager.gui.FontManager;
-import com.windthunderstudio.scmanager.gui.LocaleChangeController;
-import com.windthunderstudio.scmanager.gui.LocaleListenerForFont;
+import com.windthunderstudio.scmanager.gui.controller.FontManager;
+import com.windthunderstudio.scmanager.gui.controller.LocaleChangeController;
+import com.windthunderstudio.scmanager.gui.controller.LocaleListenerForFont;
 import com.windthunderstudio.scmanager.util.CTS;
 
 public class PlainMenuItem extends JMenuItem implements LocaleChangeController {
