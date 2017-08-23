@@ -27,7 +27,7 @@ dialog.text.not.supported.exit              = \u5F53\u524D\u7CFB\u7EDF\u4E0D\u65
 dialog.title.confirm                        = \u786E\u8BA4
 
 dialog.title.manage.task                    = \u63D0\u9192\u4EFB\u52A1\u7BA1\u7406
-dialog.text.manage.task                     = \u65B0\u5EFA\uFF0C\u4FEE\u6539\u6216\u5220\u9664\u4EFB\u9192\uFF1A\u52A1\u63D0
+dialog.text.manage.task                     = \u65B0\u5EFA\uFF0C\u4FEE\u6539\u6216\u5220\u9664\u4EFB\u52A1\u63D0\u9192
 
 table.colname.task.name                     = \u4EFB\u52A1\u540D\u79F0
 table.colname.task.desc                     = \u63CF\u8FF0

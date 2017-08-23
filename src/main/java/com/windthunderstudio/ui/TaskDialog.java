@@ -1,11 +1,13 @@
 package com.windthunderstudio.ui;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Properties;
 
 import javax.swing.BorderFactory;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -25,6 +27,7 @@ import org.apache.logging.log4j.Logger;
 import com.windthunderstudio.logic.util.CTS;
 import com.windthunderstudio.logic.util.I18N_Manager;
 import com.windthunderstudio.ui.elements.BoldLabel;
+import com.windthunderstudio.ui.elements.IconButton;
 import com.windthunderstudio.ui.elements.PlainButton;
 
 import net.miginfocom.swing.MigLayout;
@@ -33,10 +36,10 @@ public class TaskDialog extends JDialog {
     private static final Logger log = LogManager.getLogger(TaskDialog.class);
     private Properties localeProp = I18N_Manager.loadLocale();
     
-    private BoldLabel title;
-    private PlainButton create;
-    private PlainButton edit;
-    private PlainButton delete;
+    private BoldLabel titleDesc;
+    private IconButton create;
+    private IconButton edit;
+    private IconButton delete;
     
     private JTable tasks;
     public TaskDialog() {
@@ -44,48 +47,52 @@ public class TaskDialog extends JDialog {
     }
     
     private void createTaskDialog() {
-        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
         setTitle(localeProp.getProperty(CTS.DIALOG_TITLE_MANAGE_TASK));
         setLayout(new MigLayout("insets 10, fill", "[]", "[]5[]5[fill, grow]"));
         setBounds(0, 0, 600, 500);
+        
         JPanel topPanel = new JPanel();
         topPanel.setOpaque(false);
-        topPanel.setLayout(new MigLayout("insets 5, fill", "[]push[]5[]5[]", "[]"));
+        topPanel.setLayout(new MigLayout("insets 5, fill", "[]push[]10[]10[]", "[]"));
         add(topPanel, "cell 0 0, grow");
         
-        title = new BoldLabel();
-        title.setText(localeProp.getProperty(CTS.DIALOG_TEXT_MANAGE_TASK));
-        title.setTextKey(CTS.DIALOG_TEXT_MANAGE_TASK);
-        topPanel.add(title, "cell 0 0, grow");
+        titleDesc = new BoldLabel();
+        titleDesc.setText(localeProp.getProperty(CTS.DIALOG_TEXT_MANAGE_TASK));
+        titleDesc.setTextKey(CTS.DIALOG_TEXT_MANAGE_TASK);
+        topPanel.add(titleDesc, "cell 0 0, grow");
         
-        create = new PlainButton();
-        create.setText(null);
-        create.setIcon(new ImageIcon(CTS.ICON_CREATE_PATH));
+        create = new IconButton();
+        ImageIcon createIcon = new ImageIcon(CTS.ICON_CREATE_PATH);
+//        create.setIcon(new ImageIcon(createIcon.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH)));
+        create.setIcon(createIcon);
         create.addActionListener(new ActionListener() {
-            
             @Override
             public void actionPerformed(ActionEvent e) {
                 
             }
         });
-        topPanel.add(create, "cell 1 0, shrink");
+        topPanel.add(create, "cell 1 0, shrink, w 30!, h 30!");
         
-        edit = new PlainButton();
-        edit.setText(null);
-        edit.setIcon(new ImageIcon(CTS.ICON_EDIT_PATH));
-        topPanel.add(edit, "cell 2 0, shrink");
+        edit = new IconButton();
+        ImageIcon editIcon = new ImageIcon(CTS.ICON_EDIT_PATH);
+        edit.setIcon(new ImageIcon(editIcon.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH)));
+        edit.setIcon(editIcon);
+        topPanel.add(edit, "cell 2 0, shrink, w 30!, h 30!");
         
-        delete = new PlainButton();
-        delete.setText(null);
-        delete.setIcon(new ImageIcon(CTS.ICON_DELETE_PATH));
+        delete = new IconButton();
+        ImageIcon deleteIcon = new ImageIcon(CTS.ICON_DELETE_PATH);
+//        delete.setIcon(new ImageIcon(deleteIcon.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH)));
+        delete.setIcon(deleteIcon);
         
-        topPanel.add(delete, "cell 3 0, shrink");
+        topPanel.add(delete, "cell 3 0, shrink, w 30!, h 30!");
         
         add(new JSeparator(), "cell 0 1, grow");
         
         tasks = new JTable();
         String[] colNames = new String[] {
-                CTS.TABLE_COLNAME_TASK_NAME, CTS.TABLE_COLNAME_TASK_DESC };
+                localeProp.getProperty(CTS.TABLE_COLNAME_TASK_NAME), 
+                localeProp.getProperty(CTS.TABLE_COLNAME_TASK_DESC)};
         TableModel model = new DefaultTableModel(colNames, 0);
         
         tasks.setModel(model);
@@ -129,4 +136,18 @@ public class TaskDialog extends JDialog {
         setVisible(true);
         
     }
+
+    public JTable getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(JTable tasks) {
+        this.tasks = tasks;
+    }
+
+    public BoldLabel getTitleDesc() {
+        return titleDesc;
+    }
+
+    
 }

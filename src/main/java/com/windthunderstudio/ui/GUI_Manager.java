@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
+import java.lang.reflect.InvocationTargetException;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,9 @@ import java.util.Properties;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
@@ -26,12 +30,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jcrontab.Crontab;
 
+import com.alee.laf.WebLookAndFeel;
 import com.windthunderstudio.logic.util.CTS;
 import com.windthunderstudio.logic.util.ConfigReader;
 import com.windthunderstudio.logic.util.I18N_Manager;
 import com.windthunderstudio.logic.util.ReflectionUIHandler;
 import com.windthunderstudio.ui.controller.FontManager;
 import com.windthunderstudio.ui.elements.BoldLabel;
+import com.windthunderstudio.ui.elements.PlainButton;
 import com.windthunderstudio.ui.elements.PlainMenu;
 import com.windthunderstudio.ui.elements.PlainMenuItem;
 import com.windthunderstudio.ui.elements.PopupMenuForAlarm;
@@ -59,6 +65,9 @@ public class GUI_Manager {
     private PlainMenuItem exit;
     private Crontab ct;
     
+    /* dialog */
+    private TaskDialog tasks;
+    
     /* For reflection */ 
     private List<JComponent> allComponents;
     
@@ -68,7 +77,8 @@ public class GUI_Manager {
 
     public GUI_Manager() {
         try {
-            UIManager.setLookAndFeel(new NimbusLookAndFeel());
+//            UIManager.setLookAndFeel(new NimbusLookAndFeel());
+            UIManager.setLookAndFeel(new WebLookAndFeel());
             FontManager.registerFont();
             ct = Crontab.getInstance();
             ct.init(ConfigReader.loadConfig());
@@ -85,11 +95,16 @@ public class GUI_Manager {
         
         jpop = new PopupMenuForAlarm();
         
-        /* Action part: common operations*/
+        /* Action part: common operations */
         actions = new BoldLabel();
         actions.setText(localeProp.getProperty(CTS.TEXT_LBL_ACTION));
         actions.setTextKey(CTS.TEXT_LBL_ACTION);
         jpop.add(actions);
+        
+        /* create dialog and hide, for font config. Must not be null when added to allComponents */
+        tasks = new TaskDialog();
+        tasks.setVisible(false);
+        
         
         task = new PlainMenuItem(localeProp.getProperty(CTS.TEXT_MENU_TASK));
         task.setTextKey(CTS.TEXT_MENU_TASK);
@@ -97,7 +112,7 @@ public class GUI_Manager {
             
             @Override
             public void actionPerformed(ActionEvent e) {
-                TaskDialog tasks = new TaskDialog();
+                tasks.setVisible(true);
             }
         });
         
@@ -221,9 +236,14 @@ public class GUI_Manager {
         
         // add all constructed components for config
         allComponents = new ArrayList<JComponent>();
+        
+        /* main pop menu */
         allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(BoldLabel.class.getName(), this));
         allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(PlainMenuItem.class.getName(), this));
         allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(PlainMenu.class.getName(), this));
+        
+        /* tasks dialog */
+        allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(BoldLabel.class.getName(), tasks));
         
         return jpop;
     }
@@ -363,4 +383,9 @@ public class GUI_Manager {
         this.exit = exit;
     }
 
+    public TaskDialog getTasks() {
+        return tasks;
+    }
+
+    
 }

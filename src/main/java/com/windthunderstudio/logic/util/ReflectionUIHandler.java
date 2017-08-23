@@ -96,7 +96,7 @@ public class ReflectionUIHandler {
             getter.setAccessible(true);
             Object key = getter.invoke(component, (Object[])null);
             if (key == null) {
-                log.error("The component of type " + component.getClass() + " has no value defined for the property " + originProperty);
+                log.error("One component of type " + component.getClass() + " has no value defined for the property " + originProperty);
             }
             //get the getProperty() method, and call it.
             Method getPropertyMethod = locale.getClass().getMethod("getProperty", key.getClass());
