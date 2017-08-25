@@ -103,13 +103,10 @@ public class GUI_Manager {
         
         /* create dialog and hide, for font config. Must not be null when added to allComponents */
         tasks = new TaskDialog();
-        tasks.setVisible(false);
-        
         
         task = new PlainMenuItem(localeProp.getProperty(CTS.TEXT_MENU_TASK));
         task.setTextKey(CTS.TEXT_MENU_TASK);
         task.addActionListener(new ActionListener() {
-            
             @Override
             public void actionPerformed(ActionEvent e) {
                 tasks.setVisible(true);

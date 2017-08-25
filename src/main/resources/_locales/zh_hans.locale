@@ -26,8 +26,9 @@ dialog.text.confirm.exit                    = \u786E\u8BA4\u8981\u9000\u51FA {0}
 dialog.text.not.supported.exit              = \u5F53\u524D\u7CFB\u7EDF\u4E0D\u652F\u6301\u6258\u76D8\u3002\u9000\u51FA\u4E2D\u2026\u2026
 dialog.title.confirm                        = \u786E\u8BA4
 
-dialog.title.manage.task                    = \u63D0\u9192\u4EFB\u52A1\u7BA1\u7406
-dialog.text.manage.task                     = \u65B0\u5EFA\uFF0C\u4FEE\u6539\u6216\u5220\u9664\u4EFB\u52A1\u63D0\u9192
+dialog.title.manage.alarm                   = \u63D0\u9192\u4EFB\u52A1\u7BA1\u7406
+dialog.text.manage.alarm                    = \u65B0\u5EFA\uFF0C\u4FEE\u6539\u6216\u5220\u9664\u4EFB\u52A1\u63D0\u9192
 
+dialog.title.create.alarm                   = \u65B0\u5EFA\u4E00\u4E2A\u95F9\u949F
 table.colname.task.name                     = \u4EFB\u52A1\u540D\u79F0
 table.colname.task.desc                     = \u63CF\u8FF0

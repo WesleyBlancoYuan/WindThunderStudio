@@ -26,8 +26,10 @@ dialog.text.confirm.exit                    = ¿Estás seguro de salir del program
 dialog.title.confirm                        = Confirmar
 dialog.text.not.supported.exit              = No es disponible el System tray en esta plataforma. Saliendo del programa...
 
-dialog.title.manage.task                    = Gestión de alarmas
-dialog.text.manage.task                     = Crear, editar o eliminar un alarma:
+dialog.title.manage.alarm                   = Gestión de alarmas
+dialog.text.manage.alarm                    = Crear, editar o eliminar un alarma:
+
+dialog.title.create.alarm                   = Crear un alarma nueva
 
 table.colname.task.name                     = Nombre de Tarea
 table.colname.task.desc                     = Descripción

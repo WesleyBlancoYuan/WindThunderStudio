@@ -48,7 +48,8 @@ public class TaskDialog extends JDialog {
     
     private void createTaskDialog() {
         setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
-        setTitle(localeProp.getProperty(CTS.DIALOG_TITLE_MANAGE_TASK));
+        
+        setTitle(localeProp.getProperty(CTS.DIALOG_TITLE_MANAGE_ALARM));
         setLayout(new MigLayout("insets 10, fill", "[]", "[]5[]5[fill, grow]"));
         setBounds(0, 0, 600, 500);
         
@@ -58,8 +59,8 @@ public class TaskDialog extends JDialog {
         add(topPanel, "cell 0 0, grow");
         
         titleDesc = new BoldLabel();
-        titleDesc.setText(localeProp.getProperty(CTS.DIALOG_TEXT_MANAGE_TASK));
-        titleDesc.setTextKey(CTS.DIALOG_TEXT_MANAGE_TASK);
+        titleDesc.setText(localeProp.getProperty(CTS.DIALOG_TEXT_MANAGE_ALARM));
+        titleDesc.setTextKey(CTS.DIALOG_TEXT_MANAGE_ALARM);
         topPanel.add(titleDesc, "cell 0 0, grow");
         
         create = new IconButton();
@@ -75,12 +76,14 @@ public class TaskDialog extends JDialog {
         topPanel.add(create, "cell 1 0, shrink, w 30!, h 30!");
         
         edit = new IconButton();
+        edit.setEnabled(false);
         ImageIcon editIcon = new ImageIcon(CTS.ICON_EDIT_PATH);
         edit.setIcon(new ImageIcon(editIcon.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH)));
         edit.setIcon(editIcon);
         topPanel.add(edit, "cell 2 0, shrink, w 30!, h 30!");
         
         delete = new IconButton();
+        delete.setEnabled(false);
         ImageIcon deleteIcon = new ImageIcon(CTS.ICON_DELETE_PATH);
 //        delete.setIcon(new ImageIcon(deleteIcon.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH)));
         delete.setIcon(deleteIcon);
@@ -133,8 +136,7 @@ public class TaskDialog extends JDialog {
         pack();
         setBounds(0, 0, 600, 500);
         setLocationRelativeTo(null);
-        setVisible(true);
-        
+        setVisible(false);
     }
 
     public JTable getTasks() {

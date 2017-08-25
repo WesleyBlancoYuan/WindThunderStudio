@@ -46,8 +46,10 @@ public class CTS {
     public static final String DIALOG_TITLE_CONFIRM     = "dialog.title.confirm";
     public static final String DIALOG_TEXT_NOT_SUPPORTED_EXIT = "dialog.text.not.supported.exit";
     
-    public static final String DIALOG_TEXT_MANAGE_TASK = "dialog.text.manage.task";
-    public static final String DIALOG_TITLE_MANAGE_TASK = "dialog.title.manage.task";
+    public static final String DIALOG_TEXT_MANAGE_ALARM = "dialog.text.manage.alarm";
+    public static final String DIALOG_TITLE_MANAGE_ALARM = "dialog.title.manage.alarm";
+    
+    public static final String DIALOG_TITLE_CREATE_ALARM = "dialog.title.create.alarm";
     /* *************************** Menu label/button/menu text ***************************/
     public static final String TEXT_MENUITEM_EXIT = "text.menuitem.exit";
     public static final String TEXT_LBL_ACTION = "text.lbl.action";

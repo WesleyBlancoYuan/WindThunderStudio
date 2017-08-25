@@ -27,8 +27,10 @@ dialog.text.confirm.exit                    = Do you really want to exit {0}?
 dialog.title.confirm                        = Confirm
 dialog.text.not.supported.exit              = System tray is not supported in this platform. Exiting now...
 
-dialog.title.manage.task                    = Alarm management
-dialog.text.manage.task                     = Create, edit, or delete an alarm:
+dialog.title.manage.alarm                   = Alarm management
+dialog.text.manage.alarm                    = Create, edit, or delete an alarm:
+
+dialog.title.create.alarm                   = Create a new alarm
 
 table.colname.task.name                     = Task Name
 table.colname.task.desc                     = Description
