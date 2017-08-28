@@ -34,3 +34,8 @@ dialog.title.create.alarm                   = Create a new alarm
 
 table.colname.task.name                     = Task Name
 table.colname.task.desc                     = Description
+
+layer.title.interval                        = Alarm by time interval
+layer.title.interval.tooltip                = Activate the alarm at regular intervals from now on
+layer.title.timestamp                       = Alarm by timestamp
+layer.title.timestamp.tooltip               = Activate the alarm at certain moment of every day/week/month...

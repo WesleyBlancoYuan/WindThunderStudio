@@ -28,7 +28,12 @@ dialog.title.confirm                        = \u786E\u8BA4
 
 dialog.title.manage.alarm                   = \u63D0\u9192\u4EFB\u52A1\u7BA1\u7406
 dialog.text.manage.alarm                    = \u65B0\u5EFA\uFF0C\u4FEE\u6539\u6216\u5220\u9664\u4EFB\u52A1\u63D0\u9192
-
 dialog.title.create.alarm                   = \u65B0\u5EFA\u4E00\u4E2A\u95F9\u949F
+
 table.colname.task.name                     = \u4EFB\u52A1\u540D\u79F0
 table.colname.task.desc                     = \u63CF\u8FF0
+
+layer.title.interval                        = \u6BCF\u9694\u7279\u5B9A\u65F6\u95F4\u63D0\u9192
+layer.title.interval.tooltip                = \u4ECE\u73B0\u5728\u5F00\u59CB\uFF0C\u6BCF\u9694\u4E00\u5B9A\u65F6\u95F4\u63D0\u9192\u3002
+layer.title.timestamp                       = \u56FA\u5B9A\u65F6\u523B\u63D0\u9192
+layer.title.timestamp.tooltip               = \u6BCF\u5929\uFF0C\u6BCF\u5468\u6216\u6BCF\u6708\u7684\u56FA\u5B9A\u65F6\u523B\u63D0\u9192\u3002

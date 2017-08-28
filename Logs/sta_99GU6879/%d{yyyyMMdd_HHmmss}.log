@@ -1,8 +1,9 @@
-INFO  Id: 1, U: 99GU6879 - 25-08-2017 15:19:28:0184 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : logSystemInfo                 : Windows 10
-INFO  Id: 1, U: 99GU6879 - 25-08-2017 15:19:28:0186 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : logSystemInfo                 : amd64
-INFO  Id: 1, U: 99GU6879 - 25-08-2017 15:19:28:0187 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : logSystemInfo                 : 10.0
-INFO  Id: 1, U: 99GU6879 - 25-08-2017 15:19:28:0190 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : logSystemInfo                 : Fri Aug 25 15:19:28 CEST 2017
-INFO  Id: 1, U: 99GU6879 - 25-08-2017 15:19:28:0191 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : logSystemInfo                 : 
+INFO  Id: 1, U: 99GU6879 - 28-08-2017 14:22:09:0812 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : logSystemInfo                 : Windows 10
+INFO  Id: 1, U: 99GU6879 - 28-08-2017 14:22:09:0815 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : logSystemInfo                 : amd64
+INFO  Id: 1, U: 99GU6879 - 28-08-2017 14:22:09:0816 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : logSystemInfo                 : 10.0
+INFO  Id: 1, U: 99GU6879 - 28-08-2017 14:22:09:0821 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : logSystemInfo                 : Mon Aug 28 14:22:09 CEST 2017
+INFO  Id: 1, U: 99GU6879 - 28-08-2017 14:22:09:0823 com.windthunderstudio.launcher.SystemTrayAlarmLauncher      : logSystemInfo                 : 
 
-INFO  Id: 16, U: 99GU6879 - 25-08-2017 15:19:29:0310 com.windthunderstudio.ui.GUI_Manager                        : createGUI                     : System Tray is supported.
-INFO  Id: 16, U: 99GU6879 - 25-08-2017 15:19:29:0595 com.windthunderstudio.ui.GUI_Manager                        : createGUI                     : Icon added to system tray. 
+INFO  Id: 16, U: 99GU6879 - 28-08-2017 14:22:10:0805 com.windthunderstudio.ui.GUI_Manager                        : createGUI                     : System Tray is supported.
+INFO  Id: 16, U: 99GU6879 - 28-08-2017 14:22:11:0161 com.windthunderstudio.ui.GUI_Manager                        : createGUI                     : Icon added to system tray. 
+INFO  Id: 16, U: 99GU6879 - 28-08-2017 14:29:49:0138 com.windthunderstudio.ui.GUI_Manager                        : actionPerformed               : Exiting...

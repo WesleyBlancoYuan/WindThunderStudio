@@ -50,12 +50,19 @@ public class CTS {
     public static final String DIALOG_TITLE_MANAGE_ALARM = "dialog.title.manage.alarm";
     
     public static final String DIALOG_TITLE_CREATE_ALARM = "dialog.title.create.alarm";
+    
     /* *************************** Menu label/button/menu text ***************************/
     public static final String TEXT_MENUITEM_EXIT = "text.menuitem.exit";
     public static final String TEXT_LBL_ACTION = "text.lbl.action";
     public static final String TEXT_LBL_CONFIG = "text.lbl.config";
     public static final String TEXT_MENU_LANG = "text.menu.lang";
     public static final String TEXT_MENU_TASK = "text.menu.task";
+    
+    /* *************************** Layer in tabbedpane **********************************/
+    public static final String LAYER_TITLE_INTERVAL = "layer.title.interval";
+    public static final String LAYER_TITLE_INTERVAL_TOOLTIP = "layer.title.interval.tooltip";
+    public static final String LAYER_TITLE_TIMESTAMP = "layer.title.timestamp";
+    public static final String LAYER_TITLE_TIMESTAMP_TOOLTIP = "layer.title.timestamp.tooltip";
     
     /* *************************** Table *************************************************/
     public static final String TABLE_COLNAME_TASK_NAME = "table.colname.task.name";

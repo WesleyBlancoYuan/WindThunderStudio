@@ -32,8 +32,8 @@ import com.windthunderstudio.ui.elements.PlainButton;
 
 import net.miginfocom.swing.MigLayout;
 
-public class TaskDialog extends JDialog {
-    private static final Logger log = LogManager.getLogger(TaskDialog.class);
+public class TasksManagement extends JDialog {
+    private static final Logger log = LogManager.getLogger(TasksManagement.class);
     private Properties localeProp = I18N_Manager.loadLocale();
     
     private BoldLabel titleDesc;
@@ -41,8 +41,11 @@ public class TaskDialog extends JDialog {
     private IconButton edit;
     private IconButton delete;
     
+    private CreateTask createTask;
+    
     private JTable tasks;
-    public TaskDialog() {
+    public TasksManagement() {
+        createTask = new CreateTask();
         createTaskDialog();
     }
     
@@ -70,7 +73,7 @@ public class TaskDialog extends JDialog {
         create.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                createTask.setVisible(true);
             }
         });
         topPanel.add(create, "cell 1 0, shrink, w 30!, h 30!");
@@ -149,6 +152,10 @@ public class TaskDialog extends JDialog {
 
     public BoldLabel getTitleDesc() {
         return titleDesc;
+    }
+
+    public CreateTask getCreateTask() {
+        return createTask;
     }
 
     

@@ -33,3 +33,8 @@ dialog.title.create.alarm                   = Crear un alarma nueva
 
 table.colname.task.name                     = Nombre de Tarea
 table.colname.task.desc                     = Descripción
+
+layer.title.interval                        = Alarma en intervalo fijo
+layer.title.interval.tooltip                = Activar el alarma en intervalos regulares desde ahora.
+layer.title.timestamp                       = Alarma en determinado momento
+layer.title.timestamp.tooltip               = Activar el alarma en determinado momento del día/semana/mes...

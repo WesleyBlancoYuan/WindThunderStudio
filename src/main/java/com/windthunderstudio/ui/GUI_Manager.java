@@ -18,6 +18,7 @@ import java.util.Properties;
 
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
@@ -41,6 +42,7 @@ import com.windthunderstudio.ui.elements.PlainButton;
 import com.windthunderstudio.ui.elements.PlainMenu;
 import com.windthunderstudio.ui.elements.PlainMenuItem;
 import com.windthunderstudio.ui.elements.PopupMenuForAlarm;
+import com.windthunderstudio.ui.elements.SimpleLayer;
 
 
 public class GUI_Manager {
@@ -65,8 +67,8 @@ public class GUI_Manager {
     private PlainMenuItem exit;
     private Crontab ct;
     
-    /* dialog */
-    private TaskDialog tasks;
+    /* tasks management dialog */
+    private TasksManagement tasks;
     
     /* For reflection */ 
     private List<JComponent> allComponents;
@@ -102,7 +104,7 @@ public class GUI_Manager {
         jpop.add(actions);
         
         /* create dialog and hide, for font config. Must not be null when added to allComponents */
-        tasks = new TaskDialog();
+        tasks = new TasksManagement();
         
         task = new PlainMenuItem(localeProp.getProperty(CTS.TEXT_MENU_TASK));
         task.setTextKey(CTS.TEXT_MENU_TASK);
@@ -142,8 +144,12 @@ public class GUI_Manager {
                 localeProp = I18N_Manager.loadLocale(); //load prop in this class
                 if (allComponents != null && !allComponents.isEmpty()) {
                     for (JComponent c: allComponents) {
-                        ReflectionUIHandler.getAndSetProperty(c, I18N_Manager.loadLocale(), "TextKey", "Text");
-                        // after changing text, the font will be changed by the propertyChangeListener.
+                        if (!(c instanceof JLayeredPane)) {
+                            ReflectionUIHandler.getAndSetProperty(c, I18N_Manager.loadLocale(), "TextKey", "Text");
+                            // after changing text, the font will be changed by the propertyChangeListener.
+                        } else { //if is JLayeredPane, change font for layer; appies to title.
+                            FontManager.changeFontWithStyle(c);
+                        }
                     }
                     jpop.revalidate();
                 }
@@ -166,8 +172,12 @@ public class GUI_Manager {
                 localeProp = I18N_Manager.loadLocale(); //load prop in this class
                 if (allComponents != null && !allComponents.isEmpty()) {
                     for (JComponent c: allComponents) {
-                        ReflectionUIHandler.getAndSetProperty(c, I18N_Manager.loadLocale(), "TextKey", "Text");
-                        // after changing text, the font will be changed by the propertyChangeListener.
+                        if (!(c instanceof JLayeredPane)) {
+                            ReflectionUIHandler.getAndSetProperty(c, I18N_Manager.loadLocale(), "TextKey", "Text");
+                            // after changing text, the font will be changed by the propertyChangeListener.
+                        } else { //if is JLayeredPane, change font for layer; appies to title.
+                            FontManager.changeFontWithStyle(c);
+                        }
                     }
                     jpop.revalidate();
                 }
@@ -190,8 +200,13 @@ public class GUI_Manager {
                 localeProp = I18N_Manager.loadLocale(); //load prop in this class
                 if (allComponents != null && !allComponents.isEmpty()) {
                     for (JComponent c: allComponents) {
-                        ReflectionUIHandler.getAndSetProperty(c, I18N_Manager.loadLocale(), "TextKey", "Text");
-                        // after changing text, the font will be changed by the propertyChangeListener.
+                        if (!(c instanceof JLayeredPane)) {
+                            ReflectionUIHandler.getAndSetProperty(c, I18N_Manager.loadLocale(), "TextKey", "Text");
+                            // after changing text, the font will be changed by the propertyChangeListener.
+                        } else { //if is JLayeredPane, change font for layer; appies to title.
+                            FontManager.changeFontWithStyle(c);
+                            c.revalidate();
+                        }
                     }
                     jpop.revalidate();
                 }
@@ -241,6 +256,10 @@ public class GUI_Manager {
         
         /* tasks dialog */
         allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(BoldLabel.class.getName(), tasks));
+        
+        /* create task dialog */
+        allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(JLayeredPane.class.getName(), tasks.getCreateTask()));
+        allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(PlainButton.class.getName(), tasks.getCreateTask()));
         
         return jpop;
     }
@@ -380,7 +399,7 @@ public class GUI_Manager {
         this.exit = exit;
     }
 
-    public TaskDialog getTasks() {
+    public TasksManagement getTasks() {
         return tasks;
     }
 
