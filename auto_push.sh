@@ -1,4 +1,5 @@
 # bash
+echo Auto-push to branch systemtrayalarm...
 
 git add --all
 
