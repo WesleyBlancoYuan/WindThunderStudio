@@ -6,6 +6,8 @@ read -p "Commit description: " desc
 
 git commit -m "$desc"
 
-read -p "Branch name: " branch
+# read -p "Branch name: " branch
 
-git push origin $branch
+# git push origin $branch
+
+git push origin scm
