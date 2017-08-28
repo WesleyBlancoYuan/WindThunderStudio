@@ -1,4 +1,5 @@
 # bash
+echo Auto-push to branch scm...
 
 git add --all
 
