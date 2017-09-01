@@ -64,6 +64,15 @@ public class CTS {
     public static final String LAYER_TITLE_TIMESTAMP = "layer.title.timestamp";
     public static final String LAYER_TITLE_TIMESTAMP_TOOLTIP = "layer.title.timestamp.tooltip";
     
+    public static final String TEXT_LBL_INTERVAL = "text.lbl.interval";
+    public static final String TEXT_LBL_DAYS = "text.lbl.days";
+    public static final String TEXT_LBL_HOURS = "text.lbl.hours";
+    public static final String TEXT_LBL_MINUTES = "text.lbl.minutes";
+    public static final String TEXT_LBL_REMINDTYPE = "text.lbl.remindtype";
+    public static final String TEXT_RADIO_WITHPOPUP = "text.radio.withpopup";
+    public static final String TEXT_RADIO_WITHDIALOG = "text.radio.withdialog";
+    
+    
     /* *************************** Table *************************************************/
     public static final String TABLE_COLNAME_TASK_NAME = "table.colname.task.name";
     public static final String TABLE_COLNAME_TASK_DESC = "table.colname.task.desc";

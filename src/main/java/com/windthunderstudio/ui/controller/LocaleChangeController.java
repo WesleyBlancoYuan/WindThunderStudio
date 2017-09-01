@@ -6,6 +6,7 @@ package com.windthunderstudio.ui.controller;
  *
  */
 public interface LocaleChangeController {
+    
     public String getTextKey();
     
 }

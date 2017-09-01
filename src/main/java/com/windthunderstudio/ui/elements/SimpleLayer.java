@@ -9,6 +9,7 @@ import com.windthunderstudio.ui.controller.LocaleChangeController;
 public class SimpleLayer extends JLayeredPane implements LocaleChangeController {
 
     private String textKey;
+    private String tooltipTextKey;
     
     @Override
     public String getTextKey() {
@@ -17,6 +18,13 @@ public class SimpleLayer extends JLayeredPane implements LocaleChangeController 
     
     public void setTextKey(String textKey) {
         this.textKey = textKey;
+    }
+    
+    public void setTooltipTextKey(String textKey) {
+        this.tooltipTextKey = textKey;
+    }
+    public String getTooltipTextKey() {
+        return tooltipTextKey;
     }
     
     public SimpleLayer() {

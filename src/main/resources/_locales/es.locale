@@ -38,3 +38,11 @@ layer.title.interval                        = Alarma en intervalo fijo
 layer.title.interval.tooltip                = Activar el alarma en intervalos regulares desde ahora.
 layer.title.timestamp                       = Alarma en determinado momento
 layer.title.timestamp.tooltip               = Activar el alarma en determinado momento del día/semana/mes...
+
+text.lbl.interval                           = Cada cuánto tiempo se activa: 
+text.lbl.days                               = día(s)
+text.lbl.hours                              = hora(s)
+text.lbl.minutes                            = minuto(s)
+text.lbl.remindtype                         = Se advierte con: 
+text.radio.withpopup                        = Un popup en la esquina abajo derecha
+text.radio.withdialog                       = Un diálogo emergente

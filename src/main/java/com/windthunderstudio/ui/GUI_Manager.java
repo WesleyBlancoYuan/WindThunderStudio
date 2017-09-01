@@ -20,6 +20,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
@@ -144,12 +145,7 @@ public class GUI_Manager {
                 localeProp = I18N_Manager.loadLocale(); //load prop in this class
                 if (allComponents != null && !allComponents.isEmpty()) {
                     for (JComponent c: allComponents) {
-                        if (!(c instanceof JLayeredPane)) {
-                            ReflectionUIHandler.getAndSetProperty(c, I18N_Manager.loadLocale(), "TextKey", "Text");
-                            // after changing text, the font will be changed by the propertyChangeListener.
-                        } else { //if is JLayeredPane, change font for layer; appies to title.
-                            FontManager.changeFontWithStyle(c);
-                        }
+                        reconfigComponent(c);
                     }
                     jpop.revalidate();
                 }
@@ -172,12 +168,7 @@ public class GUI_Manager {
                 localeProp = I18N_Manager.loadLocale(); //load prop in this class
                 if (allComponents != null && !allComponents.isEmpty()) {
                     for (JComponent c: allComponents) {
-                        if (!(c instanceof JLayeredPane)) {
-                            ReflectionUIHandler.getAndSetProperty(c, I18N_Manager.loadLocale(), "TextKey", "Text");
-                            // after changing text, the font will be changed by the propertyChangeListener.
-                        } else { //if is JLayeredPane, change font for layer; appies to title.
-                            FontManager.changeFontWithStyle(c);
-                        }
+                        reconfigComponent(c);
                     }
                     jpop.revalidate();
                 }
@@ -200,15 +191,10 @@ public class GUI_Manager {
                 localeProp = I18N_Manager.loadLocale(); //load prop in this class
                 if (allComponents != null && !allComponents.isEmpty()) {
                     for (JComponent c: allComponents) {
-                        if (!(c instanceof JLayeredPane)) {
-                            ReflectionUIHandler.getAndSetProperty(c, I18N_Manager.loadLocale(), "TextKey", "Text");
-                            // after changing text, the font will be changed by the propertyChangeListener.
-                        } else { //if is JLayeredPane, change font for layer; appies to title.
-                            FontManager.changeFontWithStyle(c);
-                            c.revalidate();
-                        }
+                        reconfigComponent(c);
                     }
                     jpop.revalidate();
+                    
                 }
             }
         });
@@ -259,6 +245,7 @@ public class GUI_Manager {
         
         /* create task dialog */
         allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(JLayeredPane.class.getName(), tasks.getCreateTask()));
+        allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(JTabbedPane.class.getName(), tasks.getCreateTask()));
         allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(PlainButton.class.getName(), tasks.getCreateTask()));
         
         return jpop;
@@ -327,6 +314,27 @@ public class GUI_Manager {
                 log.info("Exiting for not supported...");
                 System.exit(0);
             }
+        }
+    }
+    
+    private void reconfigComponent(JComponent c) {
+        if (c instanceof JTabbedPane) {
+            // 1. set tab title
+            JTabbedPane tabs = ((JTabbedPane)c);
+            for (int i=0; i<tabs.getTabCount(); i++) {
+                SimpleLayer layer = (SimpleLayer)tabs.getComponentAt(i);
+                ((JTabbedPane)c).setTitleAt(i, localeProp.getProperty(layer.getTextKey()));
+                layer.setToolTipText(localeProp.getProperty(layer.getTooltipTextKey()));
+            }
+            // 2. set tabbedpane font, for tab title
+            FontManager.changeFontWithStyle(c);
+            // 3. refresh text and font
+            c.revalidate();
+//        } else if (c instanceof JLayeredPane){
+//            c.revalidate(); 
+        } else {
+            ReflectionUIHandler.getAndSetProperty(c, I18N_Manager.loadLocale(), "TextKey", "Text");
+            // after changing text, the font will be changed by the propertyChangeListener.
         }
     }
     
