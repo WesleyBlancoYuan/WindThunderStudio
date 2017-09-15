@@ -9,6 +9,7 @@ import javax.swing.JDialog;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.JToolTip;
 import javax.swing.border.EtchedBorder;
 
 import org.apache.logging.log4j.LogManager;
@@ -33,7 +34,8 @@ public class CreateTask extends JDialog {
     private JTabbedPane alarmType;
     private SimpleLayer interval;
     private SimpleLayer timestamp;
-    
+    private PlainLabel inter_tt_lbl;
+    private PlainLabel time_tt_lbl;
     private PlainButton ok;
     private PlainButton cancel;
     
@@ -72,13 +74,15 @@ public class CreateTask extends JDialog {
         
         interval = new SimpleLayer();
         interval.setOpaque(false);
-        interval.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED));
+        //NOTE: this tip is not the tooltip of the LAYER, but the tip shown on the tab title!
+        //better to set it here, and not to set tab layer tooltip: it is tedious to show the tooltip everywhere on the layer
         alarmType.addTab(localeProp.getProperty(CTS.LAYER_TITLE_INTERVAL), null, interval, 
                 localeProp.getProperty(CTS.LAYER_TITLE_INTERVAL_TOOLTIP));
+        //set two keys for layer tooltip key and layer title key
         interval.setTextKey(CTS.LAYER_TITLE_INTERVAL);
         interval.setTooltipTextKey(CTS.LAYER_TITLE_INTERVAL_TOOLTIP);
         
-        interval.setLayout(new MigLayout("insets 5, fill", "[]5[]", "[::30]5[::30]5[::30]5[::30]"));
+        interval.setLayout(new MigLayout("insets 5, fill, debug", "[]5[]", "[center, ::30]5[center, ::30]5[center, ::30]5[center, ::30]"));
         
         /* first line: set time interval: day, hour and minute */
         intervalLBL = new BoldLabel();
@@ -124,9 +128,10 @@ public class CreateTask extends JDialog {
         withDialog = new PlainRadio();
         withDialog.setText(localeProp.getProperty(CTS.TEXT_RADIO_WITHDIALOG));
         timestamp = new SimpleLayer();
-        timestamp.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED));
+        timestamp.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
         alarmType.addTab(localeProp.getProperty(CTS.LAYER_TITLE_TIMESTAMP), null, timestamp, 
                 localeProp.getProperty(CTS.LAYER_TITLE_TIMESTAMP_TOOLTIP));
+        //set two keys for layer tooltip key and layer title key
         timestamp.setTextKey(CTS.LAYER_TITLE_TIMESTAMP);
         timestamp.setTooltipTextKey(CTS.LAYER_TITLE_TIMESTAMP_TOOLTIP);
         
@@ -196,6 +201,75 @@ public class CreateTask extends JDialog {
     public PlainButton getCancel() {
         return cancel;
     }
+
+    public Properties getLocaleProp() {
+        return localeProp;
+    }
+
+    public PlainLabel getInter_tt_lbl() {
+        return inter_tt_lbl;
+    }
+
+    public PlainLabel getTime_tt_lbl() {
+        return time_tt_lbl;
+    }
+
+    public BoldLabel getIntervalLBL() {
+        return intervalLBL;
+    }
+
+    public PlainTextfield getDay() {
+        return day;
+    }
+
+    public PlainLabel getDayLBL() {
+        return dayLBL;
+    }
+
+    public PlainTextfield getHour() {
+        return hour;
+    }
+
+    public PlainLabel getHourLBL() {
+        return hourLBL;
+    }
+
+    public PlainTextfield getMin() {
+        return min;
+    }
+
+    public PlainLabel getMinLBL() {
+        return minLBL;
+    }
+
+    public BoldLabel getRemindType() {
+        return remindType;
+    }
+
+    public PlainRadio getWithPopup() {
+        return withPopup;
+    }
+
+    public PlainRadio getWithDialog() {
+        return withDialog;
+    }
+
+    public PlainCheck getBeep() {
+        return beep;
+    }
+
+    public BoldLabel getDesc() {
+        return desc;
+    }
+
+    public PlainTextfield getDescField() {
+        return descField;
+    }
+
+    public PlainCheck getStartNow() {
+        return startNow;
+    }
+
     
     
 }

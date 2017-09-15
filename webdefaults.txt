@@ -1,0 +1,58 @@
+// Text components fonts
+    public static Font globalControlFont = WebFonts.getSystemControlFont ();
+    public static Font buttonFont;
+    public static Font toggleButtonFont;
+    public static Font radioButtonFont;
+    public static Font checkBoxFont;
+    public static Font colorChooserFont;
+    public static Font labelFont;
+    public static Font listFont;
+    public static Font panelFont;
+    public static Font progressBarFont;
+    public static Font scrollPaneFont;
+    public static Font viewportFont;
+    public static Font sliderFont;
+    public static Font tabbedPaneFont;
+    public static Font tableFont;
+    public static Font tableHeaderFont;
+    public static Font titledBorderFont;
+    public static Font toolBarFont;
+    public static Font treeFont;
+
+    public static Font globalTooltipFont = WebFonts.getSystemTooltipFont ();
+    public static Font toolTipFont;
+
+    // Option pane font
+    public static Font globalAlertFont = WebFonts.getSystemAlertFont ();
+    public static Font optionPaneFont;
+
+    // Menu font
+    public static Font globalMenuFont = WebFonts.getSystemMenuFont ();
+    public static Font menuBarFont;
+    public static Font menuFont;
+    public static Font menuItemFont;
+    public static Font radioButtonMenuItemFont;
+    public static Font checkBoxMenuItemFont;
+    public static Font popupMenuFont;
+
+    // Component's accelerators fonts
+    public static Font globalAcceleratorFont = WebFonts.getSystemAcceleratorFont ();
+    public static Font menuItemAcceleratorFont;
+    public static Font radioButtonMenuItemAcceleratorFont;
+    public static Font checkBoxMenuItemAcceleratorFont;
+    public static Font menuAcceleratorFont;
+
+    // Title components fonts
+    public static Font globalTitleFont = WebFonts.getSystemTitleFont ();
+    public static Font internalFrameFont;
+
+    // Editor components fonts
+    public static Font globalTextFont = WebFonts.getSystemTextFont ();
+    public static Font comboBoxFont;
+    public static Font spinnerFont;
+    public static Font textFieldFont;
+    public static Font formattedTextFieldFont;
+    public static Font passwordFieldFont;
+    public static Font textAreaFont;
+    public static Font textPaneFont;
+    public static Font editorPaneFont;

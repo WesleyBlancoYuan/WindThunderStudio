@@ -22,6 +22,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
+import javax.swing.JToolTip;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -40,6 +41,7 @@ import com.windthunderstudio.logic.util.ReflectionUIHandler;
 import com.windthunderstudio.ui.controller.FontManager;
 import com.windthunderstudio.ui.elements.BoldLabel;
 import com.windthunderstudio.ui.elements.PlainButton;
+import com.windthunderstudio.ui.elements.PlainLabel;
 import com.windthunderstudio.ui.elements.PlainMenu;
 import com.windthunderstudio.ui.elements.PlainMenuItem;
 import com.windthunderstudio.ui.elements.PopupMenuForAlarm;
@@ -139,6 +141,7 @@ public class GUI_Manager {
             @Override
             public void actionPerformed(ActionEvent e) {
                 I18N_Manager.isChinese = false;
+                FontManager.changeFontWithLang();
                 ConfigReader.config(CTS.CONFIG_KEY_LOCALE, CTS.LOCALE_STR_ES);
                 ConfigReader.reloadConfig();
                 I18N_Manager.reloadLocale();
@@ -149,6 +152,7 @@ public class GUI_Manager {
                     }
                     jpop.revalidate();
                 }
+                FontManager.configDialogFont();
             }
         });
         lang.add(langES);
@@ -162,6 +166,7 @@ public class GUI_Manager {
             @Override
             public void actionPerformed(ActionEvent e) {
                 I18N_Manager.isChinese = false;
+                FontManager.changeFontWithLang();
                 ConfigReader.config(CTS.CONFIG_KEY_LOCALE, CTS.LOCALE_STR_EN);
                 ConfigReader.reloadConfig();
                 I18N_Manager.reloadLocale();
@@ -172,6 +177,7 @@ public class GUI_Manager {
                     }
                     jpop.revalidate();
                 }
+                FontManager.configDialogFont();
             }
         });
         lang.add(langEN);
@@ -185,6 +191,7 @@ public class GUI_Manager {
             @Override
             public void actionPerformed(ActionEvent e) {
                 I18N_Manager.isChinese = true;
+                FontManager.changeFontWithLang();
                 ConfigReader.config(CTS.CONFIG_KEY_LOCALE, CTS.LOCALE_STR_ZH_HANS);
                 ConfigReader.reloadConfig();
                 I18N_Manager.reloadLocale();
@@ -196,6 +203,7 @@ public class GUI_Manager {
                     jpop.revalidate();
                     
                 }
+                FontManager.configDialogFont();
             }
         });
         lang.add(langCN);
@@ -244,10 +252,15 @@ public class GUI_Manager {
         allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(BoldLabel.class.getName(), tasks));
         
         /* create task dialog */
-        allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(JLayeredPane.class.getName(), tasks.getCreateTask()));
         allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(JTabbedPane.class.getName(), tasks.getCreateTask()));
         allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(PlainButton.class.getName(), tasks.getCreateTask()));
+        allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(PlainLabel.class.getName(), tasks.getCreateTask()));
+        allComponents.addAll(ReflectionUIHandler.loadComponentsByClass(BoldLabel.class.getName(), tasks.getCreateTask()));
         
+        //first time change font with current locale
+        for (JComponent c: allComponents) {
+            reconfigComponent(c);
+        }
         return jpop;
     }
     private void createGUI() {
@@ -321,17 +334,18 @@ public class GUI_Manager {
         if (c instanceof JTabbedPane) {
             // 1. set tab title
             JTabbedPane tabs = ((JTabbedPane)c);
+            tabs.setFont(FontManager.current);
+            WebLookAndFeel.toolTipFont = FontManager.current;
             for (int i=0; i<tabs.getTabCount(); i++) {
                 SimpleLayer layer = (SimpleLayer)tabs.getComponentAt(i);
-                ((JTabbedPane)c).setTitleAt(i, localeProp.getProperty(layer.getTextKey()));
-                layer.setToolTipText(localeProp.getProperty(layer.getTooltipTextKey()));
+                tabs.setTitleAt(i, localeProp.getProperty(layer.getTextKey()));
+                tabs.setToolTipTextAt(i, localeProp.getProperty(layer.getTooltipTextKey()));
+                layer.revalidate();
             }
             // 2. set tabbedpane font, for tab title
-            FontManager.changeFontWithStyle(c);
+            tabs.setFont(FontManager.current);
             // 3. refresh text and font
-            c.revalidate();
-//        } else if (c instanceof JLayeredPane){
-//            c.revalidate(); 
+            tabs.revalidate();
         } else {
             ReflectionUIHandler.getAndSetProperty(c, I18N_Manager.loadLocale(), "TextKey", "Text");
             // after changing text, the font will be changed by the propertyChangeListener.
