@@ -23,11 +23,11 @@ public class CTS {
     public static final String ICON_DELETE_PATH = "src/main/resources/icons/delete.png";
     
     /* *************************** Config value *************************************/
-    public static final String CONFIG_PROP_PATH = "src/main/resources/settings.ini"; //relative
+    public static final String CONFIG_PROP_PATH = "/config/setting/settings.ini"; //load from src/main/resources/. "/" is necessary.
     public static final String CONFIG_KEY_LOCALE = "locale";
     
     /* *************************** Locale values ************************************/
-    public static final String LOCALE_PATH_PREFIX = "src/main/resources/_locales/";
+    public static final String LOCALE_PATH_PREFIX = "/_locales/";
     public static final String LOCALE_PATH_SUFFIX = "locale";
     public static final String LOCALE_STR_ES = "es";
     public static final String LOCALE_STR_EN = "en";
