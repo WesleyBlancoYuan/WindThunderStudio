@@ -1,0 +1,45 @@
+Request URL:https://douban.fm/j/v2/playlist?channel=0&kbps=192&client=s%3Amainsite%7Cy%3A3.0&app_name=radio_website&version=100&type=n
+Request Method:GET
+Status Code:200 OK
+Remote Address:79.137.33.140:8443
+Referrer Policy:unsafe-url
+Response Headers
+view source
+Cache-Control:must-revalidate, no-cache, private
+Connection:keep-alive
+Content-Encoding:gzip
+Content-Type:application/json; charset=utf-8
+Date:Sat, 13 Jan 2018 12:38:00 GMT
+Expires:Sun, 1 Jan 2006 01:00:00 GMT
+Keep-Alive:timeout=30
+Pragma:no-cache
+Server:dae
+Transfer-Encoding:chunked
+Vary:Accept-Encoding
+X-Content-Type-Options:nosniff
+X-DAE-App:fm
+X-DAE-Node:dis17
+X-Douban-Mobileapp:0
+X-Xss-Protection:1; mode=block
+Request Headers
+view source
+Accept:text/javascript, text/html, application/xml, text/xml, */*
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en,zh-CN;q=0.9,zh;q=0.8,es;q=0.7,ja;q=0.6,ru;q=0.5,zh-TW;q=0.4,en-GB;q=0.3
+Connection:keep-alive
+Content-Type:application/x-www-form-urlencoded
+Cookie:flag="ok"; bid=KvXsnNLTMUI; ac="1508181776"; dbcl2="47861660:gEuq5JLSd6c"; _vwo_uuid_v2=E8A3B6F0C78763F43A8A5C603D3CCF99|63cf889e261bc3e06655b9c6bfd7200b; _ga=GA1.2.1317884110.1508181786; dbcl2="47861660:d8Ohm+7j36U"; _pk_id.100002.6447=7335125041faeed6.1515616160.1.1515616160.1515616160.; ck=k8UV
+DNT:1
+Host:douban.fm
+Referer:https://douban.fm/
+User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36
+X-Requested-With:XMLHttpRequest
+Query String Parameters
+view source
+view URL encoded
+channel:0
+kbps:192
+client:s:mainsite|y:3.0
+app_name:radio_website
+version:100
+type:n

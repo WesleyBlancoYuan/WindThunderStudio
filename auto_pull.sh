@@ -1,3 +1,3 @@
 # bash
-git pull origin systemtrayalarm
+git pull origin doubanfm
 
