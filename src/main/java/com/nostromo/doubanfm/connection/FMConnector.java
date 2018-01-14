@@ -7,7 +7,7 @@ import com.google.gson.Gson;
 
 public class FMConnector {
     
-    public static final Logger logger = Logger.getLogger("com.nostromo.doubanfm.connection.FMConnector");
+    public static final Logger logger = Logger.getLogger("FMConnector");
     
      
     public FMConnector() {
